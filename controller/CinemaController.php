@@ -12,6 +12,6 @@ class CinemaController {
             FROM film
         ");
 
-        require "view/listFilms.php";
+        require "view/listFilms.php"; 
     }
 }

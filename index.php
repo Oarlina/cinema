@@ -2,6 +2,7 @@
 
 use Controller\CinemaController;
 
+/* sert au chargement automatique des classes*/
 spl_autoload_register(function ($class_name) {
     include $class_name.'.php';
 });
