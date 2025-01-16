@@ -4,4 +4,4 @@ INNER JOIN realisateur ON film.realisateur_id = realisateur.id_realisateur
 INNER JOIN personne ON realisateur.personne_id = personne.id_personne
 
 
-WHERE personne.id_personne = 2
+WHERE realisateur.id_realisateur = 2
