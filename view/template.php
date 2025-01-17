@@ -13,70 +13,72 @@
     <title><?= $title ?> </title> <!-- get the variable title-->
 </head>
 <body>
-    <section class="border-body">
-        <section class="navbar">
+    <div class="header">
+        <nav>
+            <div class="nav-gauche">
                 <i class="fa-solid fa-bars"></i> <!-- burger menu -->
                 <p class="title">BingCine</p>
-    
-                <nav class="uk-navbar-container">
-                    <a href="">Acceuil</a>
-                    <a href="view/listeFilms.php">Films</a>
-                    <a href="">Categorie</a>
-                    <a href="">Acteurs</a>
-                    <a href="">Réalisateur</a>
-                </nav>
-                <i class="fa-solid fa-magnifying-glass"></i> <!-- search -->
-                <i class="fa-solid fa-basket-shopping"></i> <!-- basket shopping -->
-                <i class="fa-solid  fa-user"></i> <!-- user logo-->
-        </section>
-        <div id="wrapper" class="uk-container uke-container-expand">
-            <main>
-                <div id="contenu">
-                    <h2 class="uk-heading-bullet"> <?= $second_title ?> </h2> <!--on va recuperer la variable titre_secondaire -->
-                    <?= $contain ?>
-                </div>
-            </main>
-        </div>
-
-        <footer>
-            <p class="title">BingCine</p>
-
-            <nav class="uk-navbar-container">
+            </div>
+            <div class="nav-milieu">
                 <a href="">Acceuil</a>
-                <a href="">Films</a>
+                <a href="view/listeFilms.php">Films</a>
                 <a href="">Categorie</a>
                 <a href="">Acteurs</a>
                 <a href="">Réalisateur</a>
-            </nav>
-            <hr> <!-- put a line-->
-            <section class="legal_mention">
-                <section class="l1">
-                    <a href="">Politique de confidentialité</a>
-                    <a href="">Mentions légales</a>
-                </section>
+            </div>
+            <div class="nav-droite">
+                <i class="fa-solid fa-magnifying-glass"></i> <!-- search -->
+                <i class="fa-solid fa-basket-shopping"></i> <!-- basket shopping -->
+                <i class="fa-solid  fa-user"></i> <!-- user logo-->
+            </div>
+        </nav>
+        <!-- <img src="public/img/edward_main_argent.jpg" alt="Image de Edward aux mains d'argent"> -->
+    </div>
 
-                <section class="l2">
-                    <a href="">Conditions Génrérales de Vente</a>
-                    <a href="">Conditions Générales d'Utilisation</a>
-                </section>
+    
+    <div id="wrapper" class="uk-container uke-container-expand">
+        <h2 class="uk-heading-bullet"> <?= $second_title ?> </h2> <!--on va recuperer la variable titre_secondaire -->
+        <?= $contain ?>
+    </div>
 
-                <section class="l3">
-                    <a href="">Besoin d'aide?</a>
-                    <a href="">Privatisation</a>
-                    <a href="">Espace CSE</a>
-                </section>
-            </section>
-
-            <hr>
-
-            <section class="social_media">
-                <p>Retrouvez-nous sur</p>
-                <i class="fa-brands fa-square-facebook"></i>
-                <i class="fa-brands fa-square-twitter"></i>
-                <i class="fa-brands fa-square-instagram"></i>
-                <i class="fa-brands fa-square-youtube"></i>
-            </section>
-        </footer>
-    </section>
+    <footer>
+        <p class="title">BingCine</p>
+        
+        <nav class="uk-navbar-container">
+            <a href="">Acceuil</a>
+            <a href="">Films</a>
+            <a href="">Categorie</a>
+            <a href="">Acteurs</a>
+            <a href="">Réalisateur</a>
+        </nav>
+        <hr> <!-- put a line-->
+        <section class="legal_mention">
+            <div class="l1">
+                <a href="">Politique de confidentialité</a>
+                <a href="">Mentions légales</a>
+            </div>
+            
+            <div class="l2">
+                <a href="">Conditions Génrérales de Vente</a>
+                <a href="">Conditions Générales d'Utilisation</a>
+            </div>
+            
+            <div class="l3">
+                <a href="">Besoin d'aide?</a>
+                <a href="">Privatisation</a>
+                <a href="">Espace CSE</a>
+            </div>
+        </section>
+        
+        <hr>
+        
+        <section class="social_media">
+            <p>Retrouvez-nous sur</p>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-square-youtube"></i>
+        </section>
+    </footer>
 </body>
 </html>
