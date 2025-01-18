@@ -8,7 +8,7 @@ class CinemaController {
     public function FilmsList () {
         $pdo = Connect::seConnecter();
         $requete = $pdo-> query ("
-            SELECT name, YEAR(year)
+            SELECT title, YEAR(year)
             FROM film
         ");
 
@@ -35,19 +35,18 @@ class CinemaController {
             FROM type
           
         ");
-
         require "view/categoriesList.php"; 
     }
     
     /* Lister des films avec catégorie*/
-    public function detailCategory ($id) {
+    public function categoryList ($id) {
         $pdo = Connect::seConnecter();
         $requete = $pdo-> query ("
             SELECT id_type ,name
             FROM type
+            where id_type = $id
           
         ");
-
         require "view/categoryList.php"; 
     }
 }

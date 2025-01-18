@@ -19,13 +19,23 @@ if (isset($_GET["action"])){
         break;
         case "categoriesList": $ctrlCinema -> categoriesList(); 
         break;
-        case "categoryList": $ctrlCinema -> detailCategory($id);
+        case "categoryList": $ctrlCinema -> categoryList($id);
         break;
     }
+}else{
+    ob_start();
+    ?>
+    <table>
+        <th>J'ai reussi</th>
+    </table>
+    <?php
 }
+
+
 $title = "Acceuil";
 $second_title = "";
 $contain = ob_get_clean();
 
-?>
 
+// require "view/template.php";
+?>

@@ -13,7 +13,7 @@
         <?php
             foreach ($requete->fetchAll() as $film) { ?>
                 <tr>
-                    <td> <?= $film["name"] ?> </td>
+                    <td> <?= $film["title"] ?> </td>
                     <td> <?= $film["YEAR(year)"] ?> </td>
                 </tr>
             <?php } ?>
@@ -25,5 +25,6 @@
 $title = "Liste des films";
 $second_title = "Liste des films";
 $contain = ob_get_clean();
+
 require "view/template.php";
 ?>
