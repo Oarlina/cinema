@@ -14,8 +14,8 @@
             foreach ($requete->fetchAll() as $type) {?>
                 <tr>
                     <td><?= $type["id_type"] ?></td>
-                    <td><a href="view/categoryList.php?id=<?= $type["id_type"]?>"> <?= $type["name"] ?> </a></td>
-
+                    <td><a href="view/categoryList.php?"> <?= $type["name"] ?> </a></td>
+                    <!-- id=<?= $type["id_type"]?> -->
                     <!-- faire de la ligne un lien cliquable
                     le redirection une fonction detail categorie et l'id de la categorie -->
             
