@@ -17,6 +17,8 @@ if (isset($_GET["action"])){
         break;
         case "actorsList": $ctrlCinema -> actorsList(); 
         break;
+        case "actorList": $ctrlCinema -> actorList(); 
+        break;
         case "categoriesList": $ctrlCinema -> categoriesList(); 
         break;
         case "categoryList": $ctrlCinema -> categoryList($id);
@@ -37,5 +39,5 @@ $second_title = "";
 $contain = ob_get_clean();
 
 
-// require "view/template.php";
+require "view/template.php";
 ?>

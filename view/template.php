@@ -20,11 +20,11 @@
                 <p class="title">BingCine</p>
             </div>
             <div class="nav-milieu">
-                <a href="">Acceuil</a>
-                <a href="view/listeFilms.php">Films</a>
-                <a href="">Categorie</a>
-                <a href="">Acteurs</a>
-                <a href="">Réalisateur</a>
+                <a href="#">Acceuil</a>
+                <a href="view/filmsList.php">Films</a>
+                <a href="view/Category/categoriesList.php">Categorie</a>
+                <a href="view/Actor/actorsList.php">Acteurs</a>
+                <a href="view/Director/directorsList.php">Réalisateur</a>
             </div>
             <div class="nav-droite">
                 <i class="fa-solid fa-magnifying-glass"></i> <!-- search -->
