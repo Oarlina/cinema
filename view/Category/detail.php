@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<p class="uk-label uk-label-warning">Il y a chat type de catégories.</p>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> type de catégories.</p>
 
 
 <table class="uk-table uk-table-stripped">

@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php ob_start();?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> films</p>
 
@@ -14,17 +14,15 @@
             foreach ($requete->fetchAll() as $film) { ?>
                 <tr>
                     <td> <?= $film["title"] ?> </td>
-                    <td> <?= $film["YEAR(year)"] ?> </td>
+                    <td> <?= $film["release_date"] ?> </td>
                 </tr>
             <?php } ?>
     </tbody>
 </table>
 
-<?php 
-
-$title = "Liste des films";
-$second_title = "Liste des films";
+<?php
+$title = "Liste des films avec categories";
+$second_title = "Liste des films avec categories";
 $contain = ob_get_clean();
-
 require "view/template.php";
 ?>

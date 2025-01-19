@@ -2,16 +2,14 @@
 
 namespace Controller;
 use Model\Connect;
+use PDOException; 
 
 class CinemaController {
-    /* Lister des films*/ 
-    public function FilmsList () {
-        $pdo = Connect::seConnecter();
-        $requete = $pdo-> query ("
-            SELECT title, YEAR(year)
-            FROM film
-        ");
 
+    /* Lister des films*/ 
+    public function filmslist () {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query ("SELECT id_film, title, release_date FROM film");
         require "view/filmsList.php"; 
     }
 
@@ -19,8 +17,7 @@ class CinemaController {
     public function actorsList () {
         $pdo = Connect::seConnecter();
         $requete = $pdo-> query ("
-            SELECT id_actor, CONCAT(person.name, ' ', person.firstname) AS names, gender, YEAR(date_birth)
-            FROM actor
+            SELECT id_actor, CONCAT(person.name, ' ', person.firstname) AS names, gender, date_birth FROM actor
             INNER JOIN person ON actor.person_id = person.id_person 
         ");
         require "view/Actor/actorsList.php"; 
@@ -63,5 +60,15 @@ class CinemaController {
         ");
         $requeteFilm->execute(["id" => $id]);
         require "view/Category/detail.php"; 
+    }
+     /* Lister des films avec catégorie*/
+     public function directorsList () {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo-> query ("
+            SELECT id_type ,name
+            FROM directors
+          
+        ");
+        require "view/Director/directorsList.php"; 
     }
 }
