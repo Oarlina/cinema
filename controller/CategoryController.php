@@ -1,31 +1,28 @@
 <?php
-
 namespace Controller;
 use Model\Connect;
 use PDOException; 
 
 class CategoryController {
     /* Lister des films avec catégorie*/
-    public function categoriesList () {
+    public function categorieslist () {
         $pdo = Connect::seConnecter();
         $requete = $pdo-> query ("
             SELECT id_type ,name
             FROM type
-        
         ");
         require "view/Category/categoriesList.php"; 
     }
     /* Lister des films selon la categorie*/
-    public function categoryList ($id) {
+    public function categorylist ($id) {
         $pdo = Connect::seConnecter();
-        $requeteFilm = $pdo-> prepare ("
-            SELECT * FROM film
-
+        $requete = $pdo-> prepare ("
+            SELECT * FROM film_type
             INNER JOIN type ON film_type.type_id = type.id_type
             INNER JOIN film ON film_type.id_film = film.id_film
-            where id_type = :id
+            where type_id = :id
         ");
-        $requeteFilm->execute(["id" => $id]);
+        $requete->execute(["type_id" => $id]);
         require "view/Category/detail.php"; 
     }
 }

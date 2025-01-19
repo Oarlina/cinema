@@ -14,8 +14,7 @@
             foreach ($requete->fetchAll() as $type) {?>
                 <tr>
                     <td><?= $type["id_type"] ?></td>
-                    <td><a href="view/categoryList.php?id=<?= $type["id_type"]?>"> <?= $type["name"] ?> </a></td>
-                    
+                    <td><a href="view/Category/detail.php?id=<?= $type["id_type"]?>"> <?= $type["name"] ?> </a></td>
                     <!-- faire de la ligne un lien cliquable
                     le redirection une fonction detail categorie et l'id de la categorie -->
             
@@ -25,7 +24,7 @@
 </table>
 
 <?php 
-
+ 
 $title = "Liste des films avec categories";
 $second_title = "Liste des films avec categories";
 $contain = ob_get_clean();

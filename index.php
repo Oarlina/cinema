@@ -23,11 +23,11 @@ if (isset($_GET["action"])){
         break;
         case "actorsList": $ctrlActor -> actorslist(); 
         break;
-        case "actorList": $ctrlActor -> actorList($id); 
+        case "actorList": $ctrlActor -> actorlist($id); 
         break;
         case "categoriesList": $ctrlCategory -> categorieslist(); 
         break;
-        case "categoryList": $ctrlCategory -> categoryList($id);
+        case "detailCat": $ctrlCategory -> categorylist($id);
         break;
         case "directorsList": $ctrlDirector -> directorslist(); 
         break;

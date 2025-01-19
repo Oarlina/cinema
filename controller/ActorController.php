@@ -15,7 +15,7 @@ class ActorController {
         require "view/Actor/actorsList.php"; 
     }
     /* Détail d'un acteur */
-    public function actorList () {
+    public function actorlist () {
         $pdo = Connect::seConnecter();
         $requete = $pdo-> query ("
             SELECT name, firstname, gender, YEAR(date_birth) FROM actor
