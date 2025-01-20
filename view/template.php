@@ -52,26 +52,26 @@
         <hr> <!-- put a line-->
         <section class="legal_mention">
             <div class="l1">
-                <a href="">Politique de confidentialité</a>
-                <a href="">Mentions légales</a>
+                <a href="index.php?action=confidentialite">Politique de confidentialité</a>
+                <a href="index.php?action=mention">Mentions légales</a>
             </div>
             <div class="l2">
-                <a href="">Conditions Génrérales de Vente</a>
-                <a href="">Conditions Générales d'Utilisation</a>
+                <a href="index.php?action=vente">Conditions Génrérales de Vente</a>
+                <a href="index.php?action=utilisation">Conditions Générales d'Utilisation</a>
             </div>     
             <div class="l3">
-                <a href="">Besoin d'aide?</a>
-                <a href="">Privatisation</a>
-                <a href="">Espace CSE</a>
+                <a href="index.php?action=aide">Besoin d'aide?</a>
+                <a href="index.php?action=privatisation">Privatisation</a>
+                <a href="index.php?action=cse">Espace CSE</a>
             </div>
         </section>   
         <hr>
         <section class="social_media">
             <p>Retrouvez-nous sur</p>
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-square-twitter"></i>
-            <i class="fa-brands fa-square-instagram"></i>
-            <i class="fa-brands fa-square-youtube"></i>
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="https://www.x.com/"><i class="fa-brands fa-square-twitter"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
+            <a href="https://www.youtube.com/"><i class="fa-brands fa-square-youtube"></i></a>
         </section>
     </footer>
 </body>

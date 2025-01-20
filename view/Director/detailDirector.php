@@ -26,5 +26,5 @@
 $title = "Liste de films d'un realisateur";
 $second_title = "Liste de film du realisateur";
 $contain = ob_get_clean();
-require "view/template.php";
+require_once "view/template.php";
 ?>

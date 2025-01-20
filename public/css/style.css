@@ -15,6 +15,7 @@ body {
     box-shadow: 2px 2px 15px 10px red  inset;
     background-color: #757373;
 
+
     .title {
         font-family: "Pacifico", serif;
         font-size: larger;
@@ -36,7 +37,9 @@ body {
             display: flex;
             flex-direction: row;
             .nav-gauche{
-                text-align: center;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
                 width: 20%;
                 .fa-bars{
                     display: none;
@@ -117,7 +120,6 @@ body {
         a{
             text-decoration: none;
             color: white;
-            padding: 1rem;
         }
         /* for the mouse go hover the element  */
         a:hover, i:hover {
@@ -133,6 +135,29 @@ body {
             nav{
                 .nav-gauche{
                     .fa-bars{
+                        display: block;
+                    }
+                }
+                .nav-milieu{
+                    display: none;
+                }
+                .nav-droite{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px){
+    body{
+        .header{
+            nav{
+                .nav-gauche{
+                    width: 100%;
+                    text-align: center;
+                    .fa-bars{
+                        padding: auto 0.5rem auto 0 ;
                         display: block;
                     }
                 }

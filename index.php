@@ -3,6 +3,7 @@
 use Controller\CinemaController;
 use Controller\CategoryController;
 use Controller\PersonController;
+use Controller\FooterController;
 /* sert au chargement automatique des classes*/
 spl_autoload_register(function ($class_name) {
     include $class_name.'.php';
@@ -11,6 +12,7 @@ spl_autoload_register(function ($class_name) {
 $ctrlCinema = new CinemaController();
 $ctrlCategory = new CategoryController();
 $ctrlPerson = new PersonController();
+$ctrlFooter = new FooterController();
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 if (isset($_GET["action"])){
@@ -28,6 +30,20 @@ if (isset($_GET["action"])){
         case "directorsList": $ctrlPerson -> directorslist(); 
         break;
         case "detailDirector": $ctrlPerson -> detaildirector($id);
+        break;
+        case "confidentialite": $ctrlFooter -> confidentialite();
+        break;
+        case "mention": $ctrlFooter -> mention();
+        break;
+        case "vente": $ctrlFooter -> vente();
+        break;
+        case "utilisation": $ctrlFooter -> utilisation();
+        break;
+        case "aide": $ctrlFooter -> aide();
+        break;
+        case "privatisation": $ctrlFooter -> privatisation();
+        break;
+        case "cse": $ctrlFooter -> cse();
         break;
     }
 }else{
