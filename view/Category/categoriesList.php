@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> type de catégories.</p>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount();?> type de catégories.</p>
 
 <table class="uk-table uk-table-stripped">
     <thead>
@@ -11,10 +11,10 @@
     </thead>
     <tbody>
         <?php
-            foreach ($requete->fetchAll() as $type) {?>
+            foreach ($requete->fetchAll() as $type_category) {?>
                 <tr>
-                    <td><?= $type["id_type"] ?></td>
-                    <td><a href="view/Category/detail.php?id=<?= $type["id_type"]?>"> <?= $type["name"] ?> </a></td>
+                    <td><?= $type_category["id_type"] ?></td>
+                    <td><a href="index.php?action=detailCategory&id=<?= $type_category["id_type"]?>"> <?= $type_category["name"] ?> </a></td>
                     <!-- faire de la ligne un lien cliquable
                     le redirection une fonction detail categorie et l'id de la categorie -->
             

@@ -16,7 +16,7 @@
             <tr>
                 <td> <?= $person["names"] ?> </td>
                 <td> <?= $person["gender"] ?> </td>
-                <td> <?= $person["YEAR(date_birth)"] ?> </td> -->
+                <td> <?= $person["YEAR(date_birth)"] ?> </td> 
             </tr>
             <?php } ?> 
     </tbody>
