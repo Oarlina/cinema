@@ -83,6 +83,46 @@ body {
         a:hover{
             color: var(--red);
         }
+        /* pour la page avec la liste des films*/
+        .films{
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            .film{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: rgb(255, 211, 161);
+                margin: 0.5rem;
+                width: 19%;
+                .titreFilm{
+                    font-weight: bold;
+                }
+                .imgFilm{
+                    scale:0.9;
+                    height: 25rem;
+                    width: 20rem;
+                }
+            }
+        }
+        /*pour la page du détail d'un film*/
+
+        /*pour la page avec la liste des acteurs */
+
+        /*pour la page du détail d'un acteur*/
+
+        /*pour la page avec la liste des catégories*/
+
+        /*pour la page du détail d'une catégorie*/
+
+        /*pour la page avec la liste des réalisateurs*/
+
+        /*pour la page du détail d'un réalisateur*/
+
+        /*pour la page avec la liste des rôles*/
+
+        /*pour la page du détail d'un role*/
+
     }
 
     footer{
