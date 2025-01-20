@@ -51,6 +51,10 @@ if (isset($_GET["action"])){
         break;
         case "cse": $ctrlFooter -> cse();
         break;
+        case "addCategoryForm": $ctrlCategory-> addCategoryform();
+        break;
+        case "addCategory": $ctrlCategory-> addCategory();
+        break;
     }
 }else{
     // m'ouvre en premier lieu la page d'acceuil

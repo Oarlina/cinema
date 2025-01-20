@@ -2,6 +2,8 @@
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount();?> type de catégories.</p>
 
+<button><a href="index.php?action=addCategoryForm">Ajouter une catégorie</a></button>
+
 <table class="uk-table uk-table-stripped">
     <thead>
         <tr>

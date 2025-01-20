@@ -47,4 +47,22 @@ class CategoryController {
         $requete->execute(["id" => $id]);
         require "view/Role/detailRole.php"; 
     }
+
+    // première fonction qui va m'afficher un formulaire
+    public function addCategoryform()
+    {
+        require "view/Form/addCategoryForm.php";
+    }
+    // deuxième fonction qui va valider le formulaire
+    public function addCategory()
+    {
+        $name = filter_input(Input_post,"name");
+        $pdo = Connect::seConnecter();
+        $requete = $pdo-> prepare ("INSERT INTO type_category (name_type) VALUES (:name)");
+
+        $requete->execute(["name" => $name]);
+        header(location : "index.php?action=categoriesList");
+        exit();
+       
+    }
 }
