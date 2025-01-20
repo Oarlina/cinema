@@ -23,6 +23,7 @@
                 <a href="index.php">Acceuil</a>
                 <a href="index.php?action=filmsList">Films</a>
                 <a href="index.php?action=categoriesList">Categorie</a>
+                <a href="index.php?action=roleList">Rôle</a>
                 <a href="index.php?action=actorsList">Acteurs</a>
                 <a href="index.php?action=directorsList">Réalisateur</a>
             </div>
@@ -46,6 +47,7 @@
             <a href="index.php">Acceuil</a>
             <a href="index.php?action=filmsList">Films</a>
             <a href="index.php?action=categoriesList">Categorie</a>
+            <a href="index.php?action=roleList">Rôle</a>
             <a href="index.php?action=actorsList">Acteurs</a>
             <a href="index.php?action=directorsList">Réalisateur</a>
         </nav>

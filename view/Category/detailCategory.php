@@ -11,7 +11,7 @@
     <tbody>
         <?php foreach($requete->fetchAll() as $film){  ?>
             <tr>
-                <td><?= $film["title"] ?></td>
+                <td><a href="index.php?action=detailFilm&id=<?= $film["id_film"]?>"><?= $film["title"] ?></a></td>
 
                 <!-- faire de la ligne un lien cliquable
                 le redirection une fonction detail categorie et l'id de la categorie -->
