@@ -4,19 +4,16 @@
 <table class="uk-table uk-table-stripped">
     <thead>
         <tr>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>SEXE</th>
-            <th>DATE_DE_NAISSANCE</th>
+            <th>NOM DU FILM</th>
+            <th>ROLE</th>
         </tr>
     </thead>
     <tbody>
     <?php
-        foreach ($requete->fetchAll() as $person) {?>
+        foreach ($requete->fetchAll() as $casting) {?>
             <tr>
-                <td> <?= $person["names"] ?> </td>
-                <td> <?= $person["gender"] ?> </td>
-                <td> <?= $person["YEAR(date_birth)"] ?> </td> 
+                <td> <?= $casting["title"] ?> </td>
+                <td> <?= $casting["name"] ?> </td>
             </tr>
             <?php } ?> 
     </tbody>
@@ -24,8 +21,8 @@
 
 <?php 
 
-$title = "Liste des acteurs";
-$second_title = "Liste des acteurs";
+$title = "Liste de role ";
+$second_title = "Liste de role";
 $contain = ob_get_clean();
 require "view/template.php";
 ?>

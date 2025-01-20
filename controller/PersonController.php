@@ -21,6 +21,25 @@ class PersonController {
         );
         require "view/Director/detailDirector.php"; 
     }
+
+    /* Détail d'un acteur */
+    // public function detailactor ($id) {
+    //     $pdo = Connect::seConnecter();
+    //     $requete = $pdo-> prepare (" SELECT f.title, r.name
+    //         FROM casting c
+    //         INNER JOIN film f ON c.film_id = f.id_film
+    //         INNER JOIN role_actor r ON c.role_id = r.id_role
+    //         INNER JOIN actor a ON c.actor_id = a.id_actor
+    //         INNER JOIN person p ON a.person_id = p.id_person 
+    //         WHERE id_actor = :id;
+    //     ");
+    //     $requete -> execute(["id"=> $id]);
+    //     require "view/Actor/detailActor.php"; 
+    // }
+
+
+
+
     /* Lister des acteurs */
     public function actorslist () {
         $pdo = Connect::seConnecter();
@@ -30,11 +49,17 @@ class PersonController {
         require "view/Actor/actorsList.php"; 
     }
     /* Détail d'un acteur */
-    public function detailactor () {
+    public function detailactor ($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo-> query (" SELECT forname, first_name, gender, YEAR(date_birth) FROM actor
-            INNER JOIN person ON actor.person_id = person.id_person 
+        $requete = $pdo-> prepare (" SELECT f.title, r.name
+            FROM casting c
+            INNER JOIN film f ON c.film_id = f.id_film
+            INNER JOIN role_actor r ON c.role_id = r.id_role
+            INNER JOIN actor a ON c.actor_id = a.id_actor
+            INNER JOIN person p ON a.person_id = p.id_person 
+            WHERE id_actor = :id;
         ");
+        $requete -> execute(["id"=> $id]);
         require "view/Actor/detailActor.php"; 
     }
 }
