@@ -28,10 +28,8 @@ class PersonController {
     /* Lister des acteurs */
     public function actorslist () {
         $pdo = Connect::seConnecter();
-        $requete = $pdo-> query ("SELECT id_actor, id_role, CONCAT(forname, ' ', first_name) AS NAMES, gender, DATE_FORMAT(date_birth, '%d/%m/%Y') as birth 
-            FROM casting c
-            INNER JOIN actor a ON c.actor_id = a.id_actor
-            INNER JOIN role_actor ra ON c.role_id = ra.id_role   
+        $requete = $pdo-> query ("SELECT id_actor, CONCAT(forname, ' ', first_name) AS NAMES, gender, DATE_FORMAT(date_birth, '%d/%m/%Y') as birth 
+            FROM actor a
             INNER JOIN person p ON a.person_id = p.id_person 
         ");
         require "view/Actor/actorsList.php"; 

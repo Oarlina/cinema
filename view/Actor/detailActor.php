@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php
+    <?php 
         foreach ($requete->fetchAll() as $casting) {?>
             <tr>
                 <td><a href="index.php?action=detailFilm&id=<?= $casting["id_film"]?>"> <?= $casting["title"] ?></a></td>
@@ -22,7 +22,7 @@
 
 <?php 
 
-$title = "Liste de role ";
+$title = "Liste de role";
 $second_title = "Liste de role";
 $contain = ob_get_clean();
 require "view/template.php";
