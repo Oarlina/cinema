@@ -17,26 +17,34 @@ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 if (isset($_GET["action"])){
     switch ($_GET["action"]) {
-        case "filmsList": $ctrlCinema -> filmslist(); 
-        break;
-        case "detailFilm": $ctrlCinema -> detailfilm($id); 
-        break;
-        case "actorsList": $ctrlPerson -> actorslist(); 
-        break;
-        case "detailActor": $ctrlPerson -> detailactor($id); 
-        break;
+        // partie des categories 
         case "categoriesList": $ctrlCategory -> categorieslist(); 
         break;
         case "detailCategory": $ctrlCategory -> detailcategory($id);
         break;
-        case "directorsList": $ctrlPerson -> directorslist(); 
+        case "addCategoryForm": $ctrlCategory-> addCategoryform();
         break;
-        case "detailDirector": $ctrlPerson -> detaildirector($id);
+        case "addCategory": $ctrlCategory-> addCategory();
         break;
+        // partie des roles 
         case "roleList": $ctrlCategory -> rolelist(); 
         break;
         case "detailRole": $ctrlCategory -> detailrole($id);
         break;
+        case "addRoleForm": $ctrlCategory-> addRoleForm();
+        break;
+        case "addRole": $ctrlCategory-> addRole();
+        break;
+        // partie des films 
+        case "filmsList": $ctrlCinema -> filmslist(); 
+        break;
+        case "detailFilm": $ctrlCinema -> detailfilm($id); 
+        break;
+        case "addFilmForm": $ctrlCinema-> addFilmform();
+        break;
+        case "addFilm": $ctrlCinema-> addFilm();
+        break;
+        // partie du footer 
         case "confidentialite": $ctrlFooter -> confidentialite();
         break;
         case "mention": $ctrlFooter -> mention();
@@ -51,10 +59,26 @@ if (isset($_GET["action"])){
         break;
         case "cse": $ctrlFooter -> cse();
         break;
-        case "addCategoryForm": $ctrlCategory-> addCategoryform();
+         // partie des acteurs 
+         case "actorList": $ctrlPerson -> actorList(); 
+         break;
+         case "detailActor": $ctrlPerson -> detailActor($id); 
+         break;
+         case "addActorForm": $ctrlPerson-> addActorForm();
+         break;
+         case "addActor": $ctrlPerson-> addActor();
+         break;
+        //  partie des personnes 
+        case "directorList": $ctrlPerson -> directorList(); 
         break;
-        case "addCategory": $ctrlCategory-> addCategory();
+        case "detailDirector": $ctrlPerson -> detailDirector($id);
         break;
+        case "addDirectorForm": $ctrlPerson-> addDirectorForm();
+        break;
+        case "addDirector": $ctrlPerson-> addDirector();
+        break;
+        
+        
     }
 }else{
     // m'ouvre en premier lieu la page d'acceuil

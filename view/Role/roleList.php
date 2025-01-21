@@ -2,7 +2,7 @@
 if ($requete->rowCount() != 0){?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> acteurs</p>
-
+<button><a href="index.php?action=addRoleForm"></a>Ajouter un rôle</a></button>
 <table class="uk-table uk-table-stripped">
     <thead>
         <tr>

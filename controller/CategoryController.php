@@ -24,6 +24,34 @@ class CategoryController {
         $requete->execute(["id" => $id]);
         require "view/Category/detailCategory.php"; 
     }
+
+    // première fonction qui va m'afficher un formulaire
+    public function addCategoryform()
+    {
+        require "view/Category/addCategoryForm.php";
+    }
+    // deuxième fonction qui va valider le formulaire
+    public function addCategory()
+    {
+        if (isset($_POST['submit'])) // si on a cliquer sur le bouton
+        {
+            $name_type = filter_input(INPUT_POST,"name_type",FILTER_SANITIZE_SPECIAL_CHARS); // on importe le nom et on enleve les caracteres speciaux
+            if ($name_type) // si name_type est vrai donc existant
+            {
+                $pdo = Connect::seConnecter();
+                $requete = $pdo-> prepare ("INSERT INTO type_category (name_type) VALUES (:name_type)");
+                $requete ->execute(["name_type"=> $name_type]);
+            }else
+            {
+                die("Erreur : tous les champs sont requis."); // si un champ du formulaire est vide
+            }
+        }
+        header("Location: index.php?action=categoriesList");
+    }
+
+
+
+
     /* Lister des role avec catégorie*/
     public function rolelist () {
         $pdo = Connect::seConnecter();
@@ -47,25 +75,26 @@ class CategoryController {
         $requete->execute(["id" => $id]);
         require "view/Role/detailRole.php"; 
     }
-
     // première fonction qui va m'afficher un formulaire
-    public function addCategoryform()
+    public function addRoleForm()
     {
-        require "view/Form/addCategoryForm.php";
+        require "view/Role/addRoleForm.php";
     }
     // deuxième fonction qui va valider le formulaire
-    public function addCategory()
+    public function addRole()
     {
         if (isset($_POST['submit'])) // si on a cliquer sur le bouton
         {
-            $name_type = filter_input(INPUT_POST,"name_type",FILTER_SANITIZE_SPECIAL_CHARS); // on importe le nom et on enleve les caracteres speciaux
-            if ($name_type) // si name_type est vrai donc existant
+            $name_role = filter_input(INPUT_POST,"name_type",FILTER_SANITIZE_SPECIAL_CHARS); // on importe le nom et on enleve les caracteres speciaux
+            if ($name_role) // si name_type est vrai donc existant
             {
                 $pdo = Connect::seConnecter();
-                $requete = $pdo-> prepare ("INSERT INTO type_category (name_type) VALUES (:name_type)");
-                $requete ->execute(["name_type"=> $name_type]);
+                $requete = $pdo-> prepare ("INSERT INTO role_actor (name) VALUES (:name_role)");
+                $requete ->execute(["name_role"=> $name_role]);
             }
         }
-        header("Location: index.php?action=categoriesList");
+        header("Location: index.php?action=roleList");
     }
+
+    
 }

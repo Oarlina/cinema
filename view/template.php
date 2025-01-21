@@ -24,8 +24,8 @@
                 <a href="index.php?action=filmsList">Films</a>
                 <a href="index.php?action=categoriesList">Categorie</a>
                 <a href="index.php?action=roleList">Rôle</a>
-                <a href="index.php?action=actorsList">Acteurs</a>
-                <a href="index.php?action=directorsList">Réalisateur</a>
+                <a href="index.php?action=actorList">Acteurs</a>
+                <a href="index.php?action=directorList">Réalisateur</a>
             </div>
             <div class="nav-droite">
                 <i class="fa-solid fa-magnifying-glass"></i> <!-- search -->
@@ -48,8 +48,8 @@
             <a href="index.php?action=filmsList">Films</a>
             <a href="index.php?action=categoriesList">Categorie</a>
             <a href="index.php?action=roleList">Rôle</a>
-            <a href="index.php?action=actorsList">Acteurs</a>
-            <a href="index.php?action=directorsList">Réalisateur</a>
+            <a href="index.php?action=actorList">Acteurs</a>
+            <a href="index.php?action=directorList">Réalisateur</a>
         </nav>
         <hr> <!-- put a line-->
         <section class="legal_mention">

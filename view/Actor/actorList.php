@@ -1,7 +1,8 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+if ($requete->rowCount() != 0){?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> acteurs</p>
-
+<button><a href="index.php?action=addActorForm">Ajouter un rôle</a></button>
 <table class="uk-table uk-table-stripped">
     <thead>
         <tr>
@@ -22,6 +23,9 @@
     </tbody>
 </table>
 <?php 
+}else {
+    ?><p>Il n'y a aucun élément!</p> <?php
+}
 $title = "Liste des acteurs";
 $second_title = "Liste des acteurs";
 $contain = ob_get_clean();
