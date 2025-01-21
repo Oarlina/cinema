@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 use Model\Connect;
-// use PDOException; 
+use PDOException; 
 
 class CategoryController {
     /* Lister des films avec catégorie*/
@@ -56,13 +56,16 @@ class CategoryController {
     // deuxième fonction qui va valider le formulaire
     public function addCategory()
     {
-        $name = filter_input(Input_post,"name");
-        $pdo = Connect::seConnecter();
-        $requete = $pdo-> prepare ("INSERT INTO type_category (name_type) VALUES (:name)");
-
-        $requete->execute(["name" => $name]);
-        header(location : "index.php?action=categoriesList");
-        exit();
-       
+        if (isset($_POST['submit'])) // si on a cliquer sur le bouton
+        {
+            $name_type = filter_input(INPUT_POST,"name_type",FILTER_SANITIZE_SPECIAL_CHARS); // on importe le nom et on enleve les caracteres speciaux
+            if ($name_type) // si name_type est vrai donc existant
+            {
+                $pdo = Connect::seConnecter();
+                $requete = $pdo-> prepare ("INSERT INTO type_category (name_type) VALUES (:name_type)");
+                $requete ->execute(["name_type"=> $name_type]);
+            }
+        }
+        header("Location: index.php?action=categoriesList");
     }
 }

@@ -27,8 +27,8 @@
 
 <?php 
  
-$title = "Liste des films avec categories";
-$second_title = "Liste des films avec categories";
+$title = "Liste des categories";
+$second_title = "Liste des categories";
 $contain = ob_get_clean();
 require "view/template.php";
 ?>
