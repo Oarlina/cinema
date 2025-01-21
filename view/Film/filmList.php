@@ -2,7 +2,7 @@
 if ($requete->rowCount() != 0){?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> films</p>
-
+<button><a href="index.php?action=addFilmForm">Ajouter un film</a></button>
 <section class="films">
     <?php
     foreach ($requete->fetchAll() as $film) { ?>

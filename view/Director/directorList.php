@@ -13,7 +13,6 @@ if ($requete->rowCount() != 0){?>
     </thead>
     <tbody>
         <?php
-        // release_date, duration
             foreach ($requete->fetchAll() as $director) {?>
                 <tr>
                     <td><a href="index.php?action=detailDirector&id=<?= $director["id_director"]?>"> <?= $director["names"] ?> </a></td>

@@ -21,7 +21,7 @@
             </div>
             <div class="nav-milieu">
                 <a href="index.php">Acceuil</a>
-                <a href="index.php?action=filmsList">Films</a>
+                <a href="index.php?action=filmList">Films</a>
                 <a href="index.php?action=categoriesList">Categorie</a>
                 <a href="index.php?action=roleList">Rôle</a>
                 <a href="index.php?action=actorList">Acteurs</a>
@@ -45,7 +45,7 @@
         
         <nav class="uk-navbar-container">
             <a href="index.php">Acceuil</a>
-            <a href="index.php?action=filmsList">Films</a>
+            <a href="index.php?action=filmList">Films</a>
             <a href="index.php?action=categoriesList">Categorie</a>
             <a href="index.php?action=roleList">Rôle</a>
             <a href="index.php?action=actorList">Acteurs</a>

@@ -36,11 +36,11 @@ if (isset($_GET["action"])){
         case "addRole": $ctrlCategory-> addRole();
         break;
         // partie des films 
-        case "filmsList": $ctrlCinema -> filmslist(); 
+        case "filmList": $ctrlCinema -> filmList(); 
         break;
-        case "detailFilm": $ctrlCinema -> detailfilm($id); 
+        case "detailFilm": $ctrlCinema -> detailFilm($id); 
         break;
-        case "addFilmForm": $ctrlCinema-> addFilmform();
+        case "addFilmForm": $ctrlCinema-> addFilmForm();
         break;
         case "addFilm": $ctrlCinema-> addFilm();
         break;
