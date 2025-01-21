@@ -1,4 +1,5 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+if ($requete->rowCount() != 0){?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> role</p>
 
@@ -26,7 +27,9 @@
 </table>
 
 <?php 
-
+}else {
+    ?><p>Il n'y a aucun élément!</p> <?php
+}
 $title = "Liste d'un rôle";
 $second_title = "Liste d'un rôle";
 $contain = ob_get_clean();

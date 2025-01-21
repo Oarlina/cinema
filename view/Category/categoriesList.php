@@ -1,4 +1,6 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+if ($requete->rowCount() != 0){
+    ?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount();?> type de catégories.</p>
 
@@ -26,6 +28,9 @@
 </table>
 
 <?php 
+}else {
+    ?><p>Il n'y a aucun élément!</p> <?php
+}
  
 $title = "Liste des categories";
 $second_title = "Liste des categories";

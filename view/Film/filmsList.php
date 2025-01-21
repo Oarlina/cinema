@@ -1,4 +1,5 @@
-<?php ob_start();?>
+<?php ob_start();
+if ($requete->rowCount() != 0){?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> films</p>
 
@@ -16,6 +17,9 @@
 
 
 <?php
+}else {
+    ?><p>Il n'y a aucun élément!</p> <?php
+}
 $title = "Liste des films avec categories";
 $second_title = "Liste des films avec categories";
 $contain = ob_get_clean();
