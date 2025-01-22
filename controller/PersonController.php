@@ -77,8 +77,6 @@ class PersonController {
         return  $pdo->lastInsertId(); // donne le dernier ID inserer de la base de donnée
     }
 
-
-
     /* Lister des directeurs*/ 
     public function directorList () {
         $pdo = Connect::seConnecter();

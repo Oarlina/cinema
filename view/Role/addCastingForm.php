@@ -1,7 +1,7 @@
 
 <?php ob_start(); ?>
 
-<form action="index.php?action=addRole" method="post">
+<form action="index.php?action=addCasting" method="post">
     <label for="newType">Nom du role: </label>
     <input type="text" name="name_role"> 
     <button type="submit" name="submit">Valider</button>

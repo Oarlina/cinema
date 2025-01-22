@@ -1,25 +1,22 @@
 <?php ob_start(); 
 if ($requete->rowCount() != 0){?>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> acteurs</p>
-<button><a href="index.php?action=addRoleForm"></a>Ajouter un rôle</a></button>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> rôles</p>
+<button><a href="index.php?action=addRoleForm">Ajouter un rôle</a></button>
+<button><a href="index.php?action=addCastingForm">Ajouter un casting</a></button>
 <table class="uk-table uk-table-stripped">
     <thead>
         <tr>
             <th>ROLE</th>
-            <th>NOM.PRENOM</th>
-            <th>SEXE</th>
         </tr>
     </thead>
     <tbody>
         <?php
-            foreach ($requete->fetchAll() as $casting) {?>
-                <tr>
-                    <td><a href="index.php?action=detailRole&id=<?= $casting["id_role"]?>"> <?= $casting["name"] ?> </a></td>
-                    <td><a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES"] ?> </a></td>
-                    <td> <?= $casting["gender"] ?> </td>
-                </tr>
-            <?php } ?>
+        foreach ($requete->fetchAll() as $role_actor) {?>
+            <tr>
+                <td><a href="index.php?action=detailRole&id=<?= $role_actor["id_role"]?>"> <?= $role_actor["name_role"] ?> </a></td>
+            </tr>
+        <?php } ?>
     </tbody>
 </table>
 <?php 

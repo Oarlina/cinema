@@ -1,18 +1,20 @@
 <?php
 
-use Controller\CinemaController;
 use Controller\CategoryController;
-use Controller\PersonController;
+use Controller\RoleController;
+use Controller\CinemaController;
 use Controller\FooterController;
+use Controller\PersonController;
 /* sert au chargement automatique des classes*/
 spl_autoload_register(function ($class_name) {
     include $class_name.'.php';
 });
-
-$ctrlCinema = new CinemaController();
 $ctrlCategory = new CategoryController();
-$ctrlPerson = new PersonController();
+$ctrlRole = new RoleController();
+$ctrlCinema = new CinemaController();
 $ctrlFooter = new FooterController();
+$ctrlPerson = new PersonController();
+
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 if (isset($_GET["action"])){
@@ -27,13 +29,15 @@ if (isset($_GET["action"])){
         case "addCategory": $ctrlCategory-> addCategory();
         break;
         // partie des roles 
-        case "roleList": $ctrlCategory -> rolelist(); 
+        case "roleList": $ctrlRole -> roleList(); 
         break;
-        case "detailRole": $ctrlCategory -> detailrole($id);
+        case "detailRole": $ctrlRole -> detailRole($id);
         break;
-        case "addRoleForm": $ctrlCategory-> addRoleForm();
+        case "addRoleForm": $ctrlRole-> addRoleForm();
         break;
-        case "addRole": $ctrlCategory-> addRole();
+        case "addRole": $ctrlRole-> addRole();
+        break;
+        case "addCastingForm": $ctrlRole-> addCastingForm();
         break;
         // partie des films 
         case "filmList": $ctrlCinema -> filmList(); 
@@ -68,7 +72,7 @@ if (isset($_GET["action"])){
          break;
          case "addActor": $ctrlPerson-> addActor();
          break;
-        //  partie des personnes 
+        //  partie des réalisateurs 
         case "directorList": $ctrlPerson -> directorList(); 
         break;
         case "detailDirector": $ctrlPerson -> detailDirector($id);
