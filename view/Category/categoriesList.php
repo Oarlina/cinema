@@ -9,7 +9,6 @@ if ($requete->rowCount() != 0){
 <table class="uk-table uk-table-stripped">
     <thead>
         <tr>
-            <th>ID</th>
             <th>GENRE</th>
         </tr>
     </thead>
@@ -17,7 +16,6 @@ if ($requete->rowCount() != 0){
         <?php
             foreach ($requete->fetchAll() as $type_category) {?>
                 <tr>
-                    <td><?= $type_category["id_type"] ?></td>
                     <td><a href="index.php?action=detailCategory&id=<?= $type_category["id_type"]?>"> <?= $type_category["name_type"] ?> </a></td>
                     <!-- faire de la ligne un lien cliquable
                     le redirection une fonction detail categorie et l'id de la categorie -->

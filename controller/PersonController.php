@@ -17,7 +17,7 @@ class PersonController {
     /* Détail d'un acteur */
     public function detailActor ($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo-> prepare (" SELECT id_role, id_film, f.title, r.name
+        $requete = $pdo-> prepare (" SELECT id_role, id_film, f.title, name_role
             FROM casting c
             INNER JOIN film f ON c.film_id = f.id_film
             INNER JOIN role_actor r ON c.role_id = r.id_role

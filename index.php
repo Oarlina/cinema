@@ -39,6 +39,8 @@ if (isset($_GET["action"])){
         break;
         case "addCastingForm": $ctrlRole-> addCastingForm();
         break;
+        case "addCasting": $ctrlRole-> addCasting();
+        break;
         // partie des films 
         case "filmList": $ctrlCinema -> filmList(); 
         break;

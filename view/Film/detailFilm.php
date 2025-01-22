@@ -19,7 +19,7 @@ if ($requete->rowCount() != 0){?>
                     <td><a href="index.php?action=detailActor&id=<?= $casting["id_director"]?>"> <?= $casting["NAMES_D"] ?> </a></td>
                     <td><a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES_A"] ?> </a></td>
                     <td> <?= $casting["gender"] ?> </td>
-                    <td><a href="index.php?action=detailRole&id=<?= $casting["id_role"]?>"> <?= $casting["name"] ?> </a></td>
+                    <td><a href="index.php?action=detailRole&id=<?= $casting["id_role"]?>"> <?= $casting["name_role"] ?> </a></td>
                 </tr>
             <?php } ?>
     </tbody>

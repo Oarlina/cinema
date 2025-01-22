@@ -15,7 +15,7 @@ if ($requete->rowCount() != 0){?>
         foreach ($requete->fetchAll() as $casting) {?>
             <tr>
                 <td><a href="index.php?action=detailFilm&id=<?= $casting["id_film"]?>"> <?= $casting["title"] ?></a></td>
-                <td><a href="index.php?action=detailRole&id=<?= $casting["id_role"]?>"> <?= $casting["name"] ?> </a></td>
+                <td><a href="index.php?action=detailRole&id=<?= $casting["id_role"]?>"> <?= $casting["name_role"] ?> </a></td>
             </tr>
             <?php } ?> 
     </tbody>
