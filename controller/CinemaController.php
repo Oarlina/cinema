@@ -43,41 +43,50 @@ class CinemaController {
     {
         if (isset($_POST['submit'])) // si on a cliquer sur le bouton
         { 
+            // filter_input recupere une variable externet et la filtre
             $title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_SPECIAL_CHARS); // on importe le nom et on enleve les caracteres speciaux
             $release_date = filter_input(INPUT_POST,"release_date",FILTER_SANITIZE_SPECIAL_CHARS); 
             $duration = filter_input(INPUT_POST,"duration",FILTER_VALIDATE_INT);
             $synopsis = filter_input(INPUT_POST,"synopsis",FILTER_SANITIZE_SPECIAL_CHARS);
             $director_id = filter_input(INPUT_POST,"director_id",FILTER_VALIDATE_INT);
-            $gender = filter_input(INPUT_POST,"gender");
-            if ($title and $release_date and $duration and $synopsis and $director_id and $gender) // si les variables sont vrai donc existantes
+            // je parcours le tableau des type_id
+            foreach ($_POST['type_id'] as $theme)
+            {
+                $id_type = filter_var($theme,FILTER_VALIDATE_INT); 
+                // var_dump($id_type);die;
+            }
+            //  var_dump($_POST);die;
+            if ($title && $release_date && $duration && $synopsis && $director_id && $id_type) // si les variables sont vrai donc existantes
             {
                 $pdo = Connect::seConnecter();
-
+                // on fait l'ajout du formulaire film
                 $requete = $pdo-> prepare ("INSERT INTO film (title, release_date, duration, synopsis, director_id) 
-                    VALUES (:title, :release_date, :duration, :synopsis, :director_id)");
+                                            VALUES (:title, :release_date, :duration, :synopsis, :director_id)");
                 $requete ->execute(["title"=> $title, 
                                     "release_date" => $release_date, 
                                     "duration" => $duration,
                                     "synopsis" => $synopsis,
                                     "director_id" => $director_id]);
-                $gender = addGenre($gender);
-            } else
+                // on fait l'ajout du ou des genres du film
+                $film_id = $pdo->lastInsertId(); // recupere le dernier id entrer donc l'id_film
+                // je parcours le tableau de type_id pour l'ajouter dans la table associative de film_type
+                foreach ($_POST['type_id'] as $theme)
+                {
+                    $requeteft = $pdo ->prepare ("INSERT INTO film_type (film_id, type_id) 
+                                                VALUES (:film_id, :theme)");
+                    $requeteft -> execute (["film_id" => $film_id,
+                                            "theme" => $theme]);
+                }
+                $requeteft = $pdo ->query ("SELECT id_type , id_film
+                                            FROM film_type ft
+                                            INNER JOIN film f ON ft.film_id = f.id_film 
+                                            INNER JOIN type_category tc ON ft.type_id = tc.id_type");
+            }
+            else
             {
                 die("Erreur : tous les champs sont requis."); // si un champs du formulaire est vide
             }
         }
         header("Location: index.php?action=filmList");
-    }
-    public function addGenre($gender)
-    {
-        $pdo = Connect::seConnecter();
-        $film_id = $pdo -> lastInsertId();
-        foreach($gender as $genre)
-        {
-            $requete = $pdo-> prepare ("INSERT INTO film_type  
-                VALUES ( :film_id, :genre)");
-            $requete ->execute(["film_id"=> $film_id, 
-                                "gender"=> $genre]);
-        }
     }
 }

@@ -99,9 +99,9 @@ body {
                     font-weight: bold;
                 }
                 .imgFilm{
-                    scale:0.9;
-                    height: 25rem;
-                    width: 20rem;
+                    padding-top: 20px;
+                    height: 75%;
+                    width: 85%;
                 }
             }
         }
