@@ -37,10 +37,6 @@ if (isset($_GET["action"])){
         break;
         case "addRole": $ctrlRole-> addRole();
         break;
-        case "addCastingForm": $ctrlRole-> addCastingForm();
-        break;
-        case "addCasting": $ctrlRole-> addCasting();
-        break;
         // partie des films 
         case "filmList": $ctrlCinema -> filmList(); 
         break;
@@ -49,6 +45,10 @@ if (isset($_GET["action"])){
         case "addFilmForm": $ctrlCinema-> addFilmForm();
         break;
         case "addFilm": $ctrlCinema-> addFilm();
+        break;
+        case "addCastingForm": $ctrlCinema-> addCastingForm();
+        break;
+        case "addCasting": $ctrlCinema-> addCasting($id);
         break;
         // partie du footer 
         case "confidentialite": $ctrlFooter -> confidentialite();

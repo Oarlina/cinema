@@ -1,16 +1,8 @@
 
 <?php ob_start(); ?>
 
-<form action="index.php?action=addCasting" method="post">
+<form action="index.php?action=addCasting&id=" method="post">
 
-    <label for="newType">Film : </label>
-    <select name="film_id" >
-        <option value="">Choissisez un film</option>
-        <?php foreach($requeteF->fetchAll() as $film)
-                { ?>
-                    <option value="<?= $film["id_film"]?>"><?= $film["title"]?></option> <?php 
-                }?>
-    </select>
 
     <label for="newType">Acteur : </label>
     <select name="actor_id" >
@@ -20,7 +12,6 @@
                     <option value="<?= $actor["id_actor"]?>"><?= $actor["NAMES"]?></option> <?php 
                 }?>
     </select>
-
     <label for="newType">Role : </label>
     <select name="role_id" >
         <option value="">Choissisez un role</option>

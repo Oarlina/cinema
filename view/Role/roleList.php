@@ -3,7 +3,6 @@ if ($requete->rowCount() != 0){?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> rôles</p>
 <button><a href="index.php?action=addRoleForm">Ajouter un rôle</a></button>
-<button><a href="index.php?action=addCastingForm">Ajouter un casting</a></button>
 <table class="uk-table uk-table-stripped">
     <thead>
         <tr>

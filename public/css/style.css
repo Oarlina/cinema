@@ -29,24 +29,20 @@ body {
             width: 100%;
             background-color: var(--orange);
             color: white;
-            width: 100%;
-            /* position: fixed;
-            top: 0;*/
             opacity: 80%; 
-            padding: 0 2rem;
             display: flex;
             flex-direction: row;
             .nav-gauche{
                 display: flex;
                 flex-direction: row;
-                align-items: center;
-                width: 20%;
+                justify-content: center;
+                width: 15%;
                 .fa-bars{
                     display: none;
                 }
             }
             .nav-milieu{
-                width: 60%;
+                width: 70%;
                 text-align: center; /* center horizontally*/  
             } 
             .nav-droite{
@@ -87,14 +83,14 @@ body {
         .films{
             display: flex;
             flex-wrap: wrap;
-            text-align: center;
+            justify-content: center;
             .film{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 background-color: rgb(255, 211, 161);
                 margin: 0.5rem;
-                width: 19%;
+                width: 18%;
                 .titreFilm{
                     font-weight: bold;
                 }
@@ -167,7 +163,7 @@ body {
         }
     }
 }
-
+/* c'est pour les tablettes */
 @media screen and (min-width: 769px) and (max-width:1024px)
 {
     body{
@@ -186,9 +182,12 @@ body {
                 }
             }
         }
+        footer{
+
+        }
     }
 }
-
+/* c'est pour les téléphones */
 @media screen and (max-width:768px){
     body{
         .header{
@@ -208,6 +207,9 @@ body {
                     display: none;
                 }
             }
+        }
+        footer{
+            
         }
     }
 }

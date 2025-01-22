@@ -14,7 +14,7 @@ class CinemaController {
     /* Détail d'un film*/ 
     public function detailFilm ($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare ("SELECT id_director, id_role, id_actor,CONCAT(p2.forname,' ', p2.first_name)AS NAMES_D, CONCAT(p.forname, ' ', p.first_name) AS NAMES_A, p.gender, name_role  
+        $requete = $pdo->prepare ("SELECT id_director, id_film, id_role, id_actor,CONCAT(p2.forname,' ', p2.first_name)AS NAMES_D, CONCAT(p.forname, ' ', p.first_name) AS NAMES_A, p.gender, name_role  
             FROM casting c
             INNER JOIN role_actor r ON c.role_id = r.id_role
             INNER JOIN actor a ON c.actor_id = a.id_actor
@@ -89,5 +89,44 @@ class CinemaController {
             }
         }
         header("Location: index.php?action=filmList");
+    }
+    // première fonction qui va m'afficher un formulaire
+    public function addCastingForm()
+    {
+        $pdo = Connect::seConnecter();
+        $requeteF = $pdo->query ("SELECT id_film, title  FROM film
+        ");
+        $requeteA = $pdo-> query ("SELECT id_actor ,CONCAT (first_name, ' ', forname) AS NAMES FROM actor
+            INNER JOIN person p ON actor.person_id = p.id_person
+        ");
+        $requeteR = $pdo-> query ("SELECT id_role ,name_role FROM role_actor
+        ");
+        require "view/Film/addCastingForm.php";
+    }
+    // deuxième fonction qui va valider le formulaire
+    public function addCasting($id)
+    {
+        if (isset($_POST['submit'])) // si on a cliquer sur le bouton
+        {
+            $actor_id = filter_input(INPUT_POST,"actor_id",FILTER_VALIDATE_INT); // on importe le nom et on enleve les caracteres speciaux
+            $role_id = filter_input(INPUT_POST,"role_id",FILTER_VALIDATE_INT); // on importe le nom et on enleve les caracteres speciaux
+            if ($film_id && $actor_id && $role_id) // si name_type est vrai donc existant
+            {
+                $pdo = Connect::seConnecter();
+                $requete = $pdo-> prepare ("INSERT INTO casting (film_id, actor_id, role_id) 
+                                            VALUES (:film_id, :actor_id, :role_id)");
+                $requete ->execute(["film_id"=> $id,
+                                    "actor_id" => $actor_id,
+                                    "role_id" => $role_id]);
+            }
+        }
+        $requeteF-> $pdo->prepare ("SELECT id_film FROM film");
+        $requeteF-> $pdo->execute (["id_film"=>$id]);
+        header("Location: index.php?action=detailFilm&id=film_id");
+    }
+    // fonction qui supprime un film (il supprime en cascade le casting)
+    public function deleteFilm()
+    {
+
     }
 }

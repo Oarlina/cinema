@@ -49,38 +49,5 @@ class RoleController{
         }
 
 
-        // première fonction qui va m'afficher un formulaire
-        public function addCastingForm()
-        {
-            $pdo = Connect::seConnecter();
-            $requeteF = $pdo->query ("SELECT id_film, title  FROM film
-            ");
-            $requeteA = $pdo-> query ("SELECT id_actor ,CONCAT (first_name, ' ', forname) AS NAMES FROM actor
-                INNER JOIN person p ON actor.person_id = p.id_person
-            ");
-            $requeteR = $pdo-> query ("SELECT id_role ,name_role FROM role_actor
-            ");
-            require "view/Role/addCastingForm.php";
-        }
-        // deuxième fonction qui va valider le formulaire
-        public function addCasting()
-        {
-            if (isset($_POST['submit'])) // si on a cliquer sur le bouton
-            {
-                $film_id = filter_input(INPUT_POST,"film_id",FILTER_VALIDATE_INT); // on importe le nom et on enleve les caracteres speciaux
-                $actor_id = filter_input(INPUT_POST,"actor_id",FILTER_VALIDATE_INT); // on importe le nom et on enleve les caracteres speciaux
-                $role_id = filter_input(INPUT_POST,"role_id",FILTER_VALIDATE_INT); // on importe le nom et on enleve les caracteres speciaux
-                if ($film_id && $actor_id && $role_id) // si name_type est vrai donc existant
-                {
-                    $pdo = Connect::seConnecter();
-                    $requete = $pdo-> prepare ("INSERT INTO casting (film_id, actor_id, role_id) 
-                                                VALUES (:film_id, :actor_id, :role_id)");
-                    $requete ->execute(["film_id"=> $film_id,
-                                        "actor_id" => $actor_id,
-                                        "role_id" => $role_id]);
-                }
-                // var_dump($_POST);die;
-            }
-            header("Location: index.php?action=roleList");
-        }
+        
 }

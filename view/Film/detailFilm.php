@@ -2,8 +2,11 @@
 if ($requete->rowCount() != 0){?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> acteurs</p>
-
-<table class="uk-table uk-table-stripped">
+<?php 
+    foreach ($requete->fetchAll() as $casting) {?>
+<button><a href="index.php?action=addCastingForm&id=<?=$casting["id_film"] ?>">Ajouter un casting</a></button>
+<?php } ?>
+<table class="uk-table uk-table-stripped"> 
     <thead>
         <tr>
             <th>realisateur</th>
@@ -14,7 +17,7 @@ if ($requete->rowCount() != 0){?>
     </thead>
     <tbody>
         <?php 
-            foreach ($requete->fetchAll() as $casting) { ?>
+            foreach ($requete->fetchAll() as $casting) {?>
                 <tr>
                     <td><a href="index.php?action=detailActor&id=<?= $casting["id_director"]?>"> <?= $casting["NAMES_D"] ?> </a></td>
                     <td><a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES_A"] ?> </a></td>
@@ -27,8 +30,13 @@ if ($requete->rowCount() != 0){?>
 
 <?php
 }else {
-    ?><p>Il n'y a aucun élément!</p> <?php
+    ?><p>Il n'y a aucun élément!</p> 
+    <?php 
+    foreach ($requeteF->fetch() as $film) {?> 
+    <button><a href="index.php?action=addCastingForm&id=<?=$film["id_film"] ?>">Ajouter un casting</a></button>
+    <?php } 
 }
+
 $title = "Détail du film";
 $second_title = "Détail du film";
 $contain = ob_get_clean();
