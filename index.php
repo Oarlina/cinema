@@ -50,6 +50,8 @@ if (isset($_GET["action"])){
         break;
         case "addCasting": $ctrlCinema-> addCasting($id);
         break;
+        case "deleteFilm": $ctrlCinema-> deleteFilm($id);
+        break;
         // partie du footer 
         case "confidentialite": $ctrlFooter -> confidentialite();
         break;
@@ -65,15 +67,20 @@ if (isset($_GET["action"])){
         break;
         case "cse": $ctrlFooter -> cse();
         break;
-         // partie des acteurs 
-         case "actorList": $ctrlPerson -> actorList(); 
-         break;
-         case "detailActor": $ctrlPerson -> detailActor($id); 
-         break;
-         case "addActorForm": $ctrlPerson-> addActorForm();
-         break;
-         case "addActor": $ctrlPerson-> addActor();
-         break;
+        // partie des personnnes
+        case "deletePerson": $ctrlPerson-> deletePerson($id);
+        break;
+        // partie des acteurs 
+        case "actorList": $ctrlPerson -> actorList(); 
+        break;
+        case "detailActor": $ctrlPerson -> detailActor($id); 
+        break;
+        case "addActorForm": $ctrlPerson-> addActorForm();
+        break;
+        case "addActor": $ctrlPerson-> addActor();
+        break;
+        case "deleteActor": $ctrlPerson-> deleteActor($id);
+        break;
         //  partie des réalisateurs 
         case "directorList": $ctrlPerson -> directorList(); 
         break;
@@ -83,8 +90,8 @@ if (isset($_GET["action"])){
         break;
         case "addDirector": $ctrlPerson-> addDirector();
         break;
-        
-        
+        case "deleteDirector": $ctrlPerson-> deleteDirector($id);
+        break;  
     }
 }else{
     // m'ouvre en premier lieu la page d'acceuil

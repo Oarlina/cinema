@@ -1,8 +1,10 @@
 
-<?php ob_start(); ?>
+<?php ob_start(); 
+foreach($requeteF->fetchAll() as $film) {
+?>
 
-<form action="index.php?action=addCasting&id=" method="post">
-
+<form action="index.php?action=addCasting&id=<?=$film["id_film"]?>" method="post">
+<?php } ?>
 
     <label for="newType">Acteur : </label>
     <select name="actor_id" >

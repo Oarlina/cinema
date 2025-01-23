@@ -9,6 +9,8 @@ if ($requete->rowCount() != 0){?>
             <th>NOM.PRENOM</th>
             <th>SEXE</th>
             <th>DATE_DE_NAISSANCE</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +20,8 @@ if ($requete->rowCount() != 0){?>
                     <td><a href="index.php?action=detailActor&id=<?= $actor["id_actor"]?>"> <?= $actor["NAMES"] ?> </a></td>
                     <td><?= $actor["gender"] ?></td>
                     <td> <?= $actor["birth"] ?> </td>
+                    <td><button><a href="index.php?action=deleteActor&id=<?=$actor["id_actor"] ?>">Supprimer l'acteur</a></button> </td>
+                    <td><button><a href="index.php?action=deletePerson&id=<?=$actor["id_actor"] ?>">Supprimer la personne</a></button> </td>
                 </tr>
             <?php } ?>
     </tbody>

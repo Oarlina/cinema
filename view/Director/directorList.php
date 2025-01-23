@@ -9,6 +9,8 @@ if ($requete->rowCount() != 0){?>
             <th>NOM.PRENOM </th>
             <th>SEXE </th>
             <th>DATE_DE_NAISSANCE </th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +20,8 @@ if ($requete->rowCount() != 0){?>
                     <td><a href="index.php?action=detailDirector&id=<?= $director["id_director"]?>"> <?= $director["names"] ?> </a></td>
                     <td> <?= $director["gender"] ?> </td>
                     <td> <?= $director["birth"] ?> </td>
+                    <td><button><a href="index.php?action=deleteDirector&id=<?=$director["id_director"] ?>">Supprimer le réalisateur</a></button></td>
+                    <td><button><a href="index.php?action=deletePerson&id=<?=$director["id_director"] ?>">Supprimer la personne</a></button> </td>
                 </tr>
             <?php } ?>
     </tbody>

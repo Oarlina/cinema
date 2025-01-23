@@ -94,8 +94,7 @@ class CinemaController {
     public function addCastingForm()
     {
         $pdo = Connect::seConnecter();
-        $requeteF = $pdo->query ("SELECT id_film, title  FROM film
-        ");
+        $requeteF = $pdo->query ("SELECT id_film, title  FROM film");
         $requeteA = $pdo-> query ("SELECT id_actor ,CONCAT (first_name, ' ', forname) AS NAMES FROM actor
             INNER JOIN person p ON actor.person_id = p.id_person
         ");
@@ -110,7 +109,7 @@ class CinemaController {
         {
             $actor_id = filter_input(INPUT_POST,"actor_id",FILTER_VALIDATE_INT); // on importe le nom et on enleve les caracteres speciaux
             $role_id = filter_input(INPUT_POST,"role_id",FILTER_VALIDATE_INT); // on importe le nom et on enleve les caracteres speciaux
-            if ($film_id && $actor_id && $role_id) // si name_type est vrai donc existant
+            if ($id && $actor_id && $role_id) // si name_type est vrai donc existant
             {
                 $pdo = Connect::seConnecter();
                 $requete = $pdo-> prepare ("INSERT INTO casting (film_id, actor_id, role_id) 
@@ -120,13 +119,17 @@ class CinemaController {
                                     "role_id" => $role_id]);
             }
         }
-        $requeteF-> $pdo->prepare ("SELECT id_film FROM film");
-        $requeteF-> $pdo->execute (["id_film"=>$id]);
-        header("Location: index.php?action=detailFilm&id=film_id");
+        header("Location: index.php?action=detailFilm&id=$id");
     }
-    // fonction qui supprime un film (il supprime en cascade le casting)
-    public function deleteFilm()
+    // fonction qui supprime un film (il supprime en cascade le casting et les genres qui lui etais relier)
+    public function deleteFilm($id)
     {
-
+        if ($id)
+        {
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("DELETE FROM film WHERE id_film=:film_id");
+            $requete->execute(["film_id" => $id]);
+        }
+        header ("Location: index.php?action=filmList");
     }
 }

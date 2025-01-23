@@ -76,6 +76,17 @@ class PersonController {
                             "date_birth"=> $date_birth]);
         return  $pdo->lastInsertId(); // donne le dernier ID inserer de la base de donnée
     }
+    // fonction qui supprime un acteur 
+    public function deleteActor($id)
+    {
+        if ($id)
+        {
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("DELETE FROM actor WHERE id_actor=:actor_id");
+            $requete->execute(["actor_id" => $id]);
+        }
+        header ("Location: index.php?action=actorList");
+    }
 
     /* Lister des directeurs*/ 
     public function directorList () {
@@ -132,7 +143,27 @@ class PersonController {
         }
         header("Location: index.php?action=directorList");
     }
-    
-
+    // fonction qui supprime un acteur 
+    public function deleteDirector($id)
+    {
+        if ($id)
+        {
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("DELETE FROM director WHERE id_director=:director_id");
+            $requete->execute(["director_id" => $id]);
+        }
+        header ("Location: index.php?action=directorList");
+    }
+    // fonction qui supprime une personne (si c'est un acteurs il supprime l'acteur et ces casting et si c'est un réalisateur il supprime ses films et le casting du film) 
+    public function deletePerson($id)
+    {
+        if ($id)
+        {
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("DELETE FROM director WHERE id_director=:director_id");
+            $requete->execute(["director_id" => $id]);
+        }
+        header ("Location: index.php?action=directorList");
+    }
 
 }
