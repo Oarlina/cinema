@@ -50,6 +50,8 @@ if (isset($_GET["action"])){
         break;
         case "addCasting": $ctrlCinema-> addCasting($id);
         break;
+        case "deleteCasting": $ctrlCinema -> deleteCasting();
+        break;
         case "deleteFilm": $ctrlCinema-> deleteFilm($id);
         break;
         // partie du footer 

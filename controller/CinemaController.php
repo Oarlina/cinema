@@ -132,4 +132,15 @@ class CinemaController {
         }
         header ("Location: index.php?action=filmList");
     }
+    // fonction qui supprime un film (il supprime en cascade le casting et les genres qui lui etais relier)
+    public function deleteCasting($idF, $idA)
+    {
+        if ($idF && $idA)
+        {
+            $pdo = Connect::seConnecter();
+            $requete = $pdo->prepare("DELETE FROM film WHERE id_film=:film_id");
+            $requete->execute(["film_id" => $idF, "actor_id" => $idA]);
+        }
+        header ("Location: index.php?action=filmList");
+    }
 }

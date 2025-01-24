@@ -13,6 +13,7 @@ if ($requete->rowCount() != 0){?>
             <th>acteur</th>
             <th>sexe</th>
             <th>role</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@ if ($requete->rowCount() != 0){?>
                     <td><a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES_A"] ?> </a></td>
                     <td> <?= $casting["gender"] ?> </td>
                     <td><a href="index.php?action=detailRole&id=<?= $casting["id_role"]?>"> <?= $casting["name_role"] ?> </a></td>
+                    <td><button><a href="index.php?action=deleteCasting&idA=<?=$casting["id_actor"] ?>&idF<?=$id_film?>">Supprimer le casting</a></button> </td>
                 </tr>
             <?php } ?>
     </tbody>
