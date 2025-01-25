@@ -39,7 +39,7 @@
         <h2 class="uk-heading-bullet"> <?= $second_title ?> </h2> <!--on va recuperer la variable titre_secondaire -->
         <?= $contain ?>
     </div>
-
+    <button id="scrollToTopBtn"> &#8593;</button> <!-- je creer un bouton pour remonter toute la page-->
     <footer>
         <p class="title">BingCine</p>
         
@@ -76,6 +76,9 @@
             <a href="https://www.youtube.com/"><i class="fa-brands fa-square-youtube"></i></a>
         </section>
     </footer>
+
+
+    <script src="public/js/index.js"></script>
 </body>
 </html>
 
