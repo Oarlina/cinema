@@ -36,13 +36,13 @@ body {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
-                width: 15%;
+                width: 10%;
                 .fa-bars{
                     display: none;
                 }
             }
             .nav-milieu{
-                width: 70%;
+                width: 75%;
                 text-align: center; /* center horizontally*/  
             } 
             .nav-droite{
@@ -70,6 +70,7 @@ body {
     }
     
     #wrapper{
+        padding: 0.5rem;
         width: 100%;
         background-color: #FFFFFF;
         a{
@@ -79,25 +80,37 @@ body {
         a:hover{
             color: var(--red);
         }
+        button{
+            box-shadow: rgb(233, 230, 230) 5px 5px;
+        }
+        button a{
+            margin: 10px 20px;
+        }
         /* pour la page avec la liste des films*/
         .films{
             display: flex;
             flex-wrap: wrap;
+            width: 100%;
             justify-content: center;
             .film{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                text-align: center;
                 background-color: rgb(255, 211, 161);
                 margin: 0.5rem;
-                width: 18%;
-                .titreFilm{
-                    font-weight: bold;
-                }
+                width: 200px;
                 .imgFilm{
                     padding-top: 20px;
                     height: 75%;
                     width: 85%;
+                }
+                .textFilm{
+                    font-weight: bold;
+                    height: 15%;
+                }
+                .textFilm2{
+                    height: 10%;
                 }
             }
         }
@@ -141,11 +154,13 @@ body {
             justify-content: center;
 
             i{
-                padding: 0.5rem;
+                /* padding: 0.5rem; */
+                width: 3rem;
+                height: 3rem;
             }
             .fa-brands{
-                height: 4rem; 
-                width: 4rem;
+                height: 3rem; 
+                width: 3rem;
             }
         }
         hr{
@@ -170,6 +185,9 @@ body {
         .header{
             nav{
                 .nav-gauche{
+                    width: 100%;
+                    text-align: center;
+                    align-items: center;
                     .fa-bars{
                         display: block;
                     }
@@ -182,9 +200,6 @@ body {
                 }
             }
         }
-        footer{
-
-        }
     }
 }
 /* c'est pour les téléphones */
@@ -195,6 +210,7 @@ body {
                 .nav-gauche{
                     width: 100%;
                     text-align: center;
+                    align-items: center;
                     .fa-bars{
                         padding: auto 0.5rem auto 0 ;
                         display: block;
@@ -209,7 +225,23 @@ body {
             }
         }
         footer{
-            
+            .legal_mention a, .uk-navbar-container a{
+                margin-bottom: 10px;
+            }
+            .uk-navbar-container{
+                display: flex;
+                flex-direction: column;
+            }
+            .legal_mention{
+                .l1, .l2, .l3{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .social_media{
+                display: flex;
+                flex-direction: column;
+            }
         }
     }
 }

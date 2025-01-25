@@ -8,8 +8,12 @@ if ($requete->rowCount() != 0){?>
     foreach ($requete->fetchAll() as $film) { ?>
         <div class="film">
             <img class="imgFilm" src="public/img/aventure_epique.webp" alt="">
-            <p class="titreFilm"> <a href="index.php?action=detailFilm&id=<?= $film["id_film"]?>"><?= $film["title"] ?> </a></p>
-            <p> <?= $film["sortie_film"] ?> </p>
+            <p class="textFilm"> 
+                <a class="titreFilm" href="index.php?action=detailFilm&id=<?= $film["id_film"]?>"><?= $film["title"] ?> </a>
+            </p>
+            <p class="textFilm2">
+                <?= $film["sortie_film"] ?> 
+            </p>
         </div>
     <?php } ?>
 </section>
