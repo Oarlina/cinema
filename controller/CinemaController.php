@@ -14,7 +14,7 @@ class CinemaController {
     /* Détail d'un film*/ 
     public function detailFilm ($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare ("SELECT id_director, id_film, id_role, id_actor,CONCAT(p2.forname,' ', p2.first_name)AS NAMES_D, CONCAT(p.forname, ' ', p.first_name) AS NAMES_A, p.gender, name_role  
+        $requete = $pdo->prepare ("SELECT id_director, id_film, synopsis, duration, title, DATE_FORMAT(release_date, ' %e %b %Y') AS release_date, id_role, id_actor,CONCAT(p2.forname,' ', p2.first_name)AS NAMES_D, CONCAT(p.forname, ' ', p.first_name) AS NAMES_A, p.gender, name_role  
             FROM casting c
             INNER JOIN role_actor r ON c.role_id = r.id_role
             INNER JOIN actor a ON c.actor_id = a.id_actor

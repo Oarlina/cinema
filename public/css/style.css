@@ -114,7 +114,17 @@ body {
             }
         }
         /*pour la page du détail d'un film*/
-
+        .infosFilms{
+            width: 100%;
+            .ligne{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                p{
+                    width: 50%;
+                }
+            }
+        }
         /*pour la page avec la liste des acteurs */
 
         /*pour la page du détail d'un acteur*/
@@ -148,7 +158,7 @@ body {
         justify-content: center;
         align-items: center;
         transition: opacity 0.3s ease, transform 0.3s ease;
-      }
+    }
       
     #scrollToTopBtn:hover {
     background-color: var(--orange);
