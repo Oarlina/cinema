@@ -114,6 +114,12 @@ body {
             }
         }
         /*pour la page du détail d'un film*/
+        #titre_film{
+            width: 100%;
+            height: 100vh;
+            object-fit: cover; /* l'image prend toute la place demander sans se deformer*/
+            object-position: 0% 0%; /* met le haut de l'image visible*/
+        }
         .infosFilms{
             width: 100%;
             .ligne{

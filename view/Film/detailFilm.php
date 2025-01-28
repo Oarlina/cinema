@@ -6,24 +6,26 @@ if ($requete->rowCount() != 0){?>
     //foreach ($requete->$casting) { ?>
 
 <?php //} ?>
-<img src="public/img/films/heros_cache.jpg" alt="ahah">
+<img id="titre_film"src="public/img/films/heros_cache.jpg" alt="ahah">
 <h2>Information</h2>
 <?php 
     foreach ($requete->fetchAll() as $casting) {
+        $title = $casting["title"];
         $sypnosis = $casting["synopsis"];
         $director = $casting["NAMES_D"];
         $duration = $casting["duration"];
         $date = $casting["release_date"];
+        $id_film = $casting["id_film"];
     }
 ?>
 <section class="infosFilms">
     <div class="ligne">
-        <p><b>Synopsis :</b></p>
-        <p><?= $sypnosis ?></p>
+        <p><b>Titre :</b></p>
+        <p><?= $title ?></p>
     </div>
     <div class="ligne">
-        <p><b>Réalisateur :</b></p>
-        <p><?= $director ?></p>
+        <p><b>Synopsis :</b></p>
+        <p><?= $sypnosis ?></p>
     </div>
     <div class="ligne">
         <p><b>Durée :</b></p>
@@ -33,19 +35,21 @@ if ($requete->rowCount() != 0){?>
         <p><b>Date de sortie:</b></p>
         <p><?= $date ?></p>
     </div>
+    <div class="ligne">
+        <p><a href="index.php?action=detailActor&id=<?= $casting["id_director"]?>">  <b>Réalisateur :</b></a></p>
+        <p><a href="index.php?action=detailActor&id=<?= $casting["id_director"]?>"> <?= $director ?></a> </p>
+    </div>
 </section>
-    <tbody>
-        
-                <tr>
-                    <?php $id_film=$casting["id_film"];?>
-                    <td><a href="index.php?action=detailActor&id=<?= $casting["id_director"]?>"> <?= $casting["NAMES_D"] ?> </a></td>
-                    <td><a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES_A"] ?> </a></td>
-                    <td> <?= $casting["gender"] ?> </td>
-                    <td><a href="index.php?action=detailRole&id=<?= $casting["id_role"]?>"> <?= $casting["name_role"] ?> </a></td>
-                    <td><button><a href="index.php?action=deleteCasting&idA=<?=$casting["id_actor"] ?>&idF<?=$id_film?>">Supprimer le casting</a></button> </td>
-                </tr>
-    </tbody>
-</table>
+<div class="acteurs">
+    <p>Acteurs:</p>
+    <?php 
+    foreach ($requete->fetchAll() as $casting) {
+        ?> <p><a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES_A"] ?> </a></p>
+        <button><a href="index.php?action=deleteCasting&idA=<?=$casting["id_actor"] ?>&idF<?=$id_film?>">Supprimer le casting</a></button>  <?php
+    }
+    ?>
+</div>
+
 <button><a href="index.php?action=addCastingForm&id=<?=$id_film ?>">Ajouter un casting</a></button> 
 <button><a href="index.php?action=deleteFilm&id=<?=$id_film ?>">Supprimer le film</a></button> 
 <?php
