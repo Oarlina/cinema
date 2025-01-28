@@ -70,10 +70,12 @@
         <hr>
         <section class="social_media">
             <p>Retrouvez-nous sur</p>
-            <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
-            <a href="https://www.x.com/"><i class="fa-brands fa-square-twitter"></i></a>
-            <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
-            <a href="https://www.youtube.com/"><i class="fa-brands fa-square-youtube"></i></a>
+            <div class="logos">
+                <a href="https://www.facebook.com/" class="logo"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://www.x.com/" class="logo"><i class="fa-brands fa-square-twitter"></i></a>
+                <a href="https://www.instagram.com/" class="logo"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="https://www.youtube.com/" class="logo"><i class="fa-brands fa-square-youtube"></i></a>
+            </div>
         </section>
     </footer>
 

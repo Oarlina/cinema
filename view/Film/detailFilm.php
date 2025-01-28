@@ -43,7 +43,7 @@ if ($requete->rowCount() != 0){?>
 } ?>
 
 <?php
-$title = "Détail du film";
+$title = "Détail du film ";
 $second_title = "Détail du film";
 $contain = ob_get_clean();
 require "view/template.php";
