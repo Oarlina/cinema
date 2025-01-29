@@ -18,6 +18,7 @@ if ($requete->rowCount() != 0){?>
             foreach ($requete->fetchAll() as $actor) {?>
                 <tr>
                     <td><a href="index.php?action=detailActor&id=<?= $actor["id_actor"]?>"> <?= $actor["NAMES"] ?> </a></td>
+                    <td class="imageActeur"><img src="public/img/acteurs/<?=$actor['first_name']?>.<?=$actor['forname']?>.jpg" alt=""></td>
                     <td><?= $actor["gender"] ?></td>
                     <td> <?= $actor["birth"] ?> </td>
                     <td><button><a href="index.php?action=deleteActor&id=<?=$actor["id_actor"] ?>">Supprimer l'acteur</a></button> </td>

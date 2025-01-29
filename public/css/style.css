@@ -132,7 +132,11 @@ body {
             }
         }
         /*pour la page avec la liste des acteurs */
-
+        /* .imageActeur{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        } */
         /*pour la page du détail d'un acteur*/
 
         /*pour la page avec la liste des catégories*/
