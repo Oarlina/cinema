@@ -7,7 +7,7 @@ if ($requete->rowCount() != 0){?>
     <?php
     foreach ($requete->fetchAll() as $film) { ?>
         <div class="film">
-            <img class="imgFilm" src="public/img/aventure_epique.webp" alt="">
+            <img class="imgFilm" src="public/img/films/<?=$film['title']?>.jpg" alt="film affiche">
             <p class="textFilm"> 
                 <a class="titreFilm" href="index.php?action=detailFilm&id=<?= $film["id_film"]?>"><?= $film["title"] ?> </a>
             </p>
