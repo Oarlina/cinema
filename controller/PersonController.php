@@ -17,7 +17,7 @@ class PersonController {
     /* Détail d'un acteur */
     public function detailActor ($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo-> prepare (" SELECT id_role, id_film, f.title, name_role
+        $requete = $pdo-> prepare (" SELECT id_role, id_film, f.title, name_role, forname, first_name, gender, DATE_FORMAT(date_birth, '%d/%m/%Y') as birth
             FROM casting c
             INNER JOIN film f ON c.film_id = f.id_film
             INNER JOIN role_actor r ON c.role_id = r.id_role
@@ -26,6 +26,15 @@ class PersonController {
             WHERE id_actor = :id;
         ");
         $requete -> execute(["id"=> $id]);
+        $requeteA = $pdo-> prepare (" SELECT id_role, id_film, f.title, name_role
+            FROM casting c
+            INNER JOIN film f ON c.film_id = f.id_film
+            INNER JOIN role_actor r ON c.role_id = r.id_role
+            INNER JOIN actor a ON c.actor_id = a.id_actor
+            INNER JOIN person p ON a.person_id = p.id_person 
+            WHERE id_actor = :id;
+        ");
+        $requeteA -> execute(["id"=> $id]);
         require "view/Actor/detailActor.php"; 
     }
 

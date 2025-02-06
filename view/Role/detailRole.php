@@ -1,37 +1,26 @@
 <?php ob_start(); 
 if ($requete->rowCount() != 0){?>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> role</p>
-
-<table class="uk-table uk-table-stripped">
-    <thead>
-        <tr>
-            <th>NOM DU FILM</th>
-            <th>DATE DE SORTIE</th>
-            <th>ACTEUR</th>
-            <th>ROLE</th>
-            <th>SEXE</th>
-        </tr>
-    </thead>
-    <tbody>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> rôles</p>
+<section class="corps">
     <?php
-        foreach ($requete->fetchAll() as $casting) {?>
-            <tr>
-                <td><a href="index.php?action=detailFilm&id=<?= $casting["id_film"]?>"> <?= $casting["title"] ?></a></td>
-                <td> <?= $casting["release_date"] ?> </td>
-                <td><a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES"] ?></a></td>
-                <td> <?= $casting["gender"] ?> </td>
-            </tr>
-            <?php } ?> 
-    </tbody>
-</table>
-
+    foreach ($requete->fetchAll() as $casting) {
+        $t = $casting["name_role"];?>
+    <div class="acteurRole">
+        <img class="imageActeur" src="public/img/acteurs/<?=$casting['first_name']?>.<?=$casting['forname']?>.jpg" alt="acteur image">
+        <p> <a href="index.php?action=detailActor&id=<?= $casting["id_actor"]?>"> <?= $casting["NAMES"] ?></a> </p>
+        <p> <a href="index.php?action=detailFilm&id=<?= $casting["id_film"]?>"> <?= $casting["title"] ?></a> </p>
+        <p> <?= $casting["release_date"] ?> </p>
+    </div>
+    <?php } ?>         
+</section>
 <?php 
 }else {
     ?><p>Il n'y a aucun élément!</p> <?php
+    $t="";
 }
-$title = "Liste d'un rôle";
-$second_title = "Liste d'un rôle";
+$title = "Rôle ". $t;
+$second_title = "Rôle ". $t;
 $contain = ob_get_clean();
 require "view/template.php";
 ?>

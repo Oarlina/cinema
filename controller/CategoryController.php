@@ -16,12 +16,17 @@ class CategoryController {
     /* Lister des films selon la categorie*/
     public function detailcategory ($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo-> prepare ("SELECT id_film, t.id_type,name_type,fil.title 
+        $requete = $pdo-> prepare ("SELECT id_film, t.id_type,name_type,fil.title, t.name_type
             FROM type_category t 
             INNER JOIN film_type ft ON t.id_type = ft.type_id 
             INNER JOIN film fil  ON ft.film_id = fil.id_film 
             WHERE id_type = :id;");
         $requete->execute(["id" => $id]);
+        $requeteT = $pdo-> prepare ("SELECT id_type, name_type
+            FROM type_category t 
+            INNER JOIN film_type ft ON t.id_type = ft.type_id 
+            WHERE id_type = :id;");
+        $requeteT->execute(["id" => $id]);
         require "view/Category/detailCategory.php"; 
     }
 

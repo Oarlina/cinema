@@ -16,7 +16,7 @@ class RoleController{
         /* Lister des role selon la categorie*/
         public function detailRole ($id) {
             $pdo = Connect::seConnecter();
-            $requete = $pdo-> prepare ("SELECT id_film, id_actor, id_role, title, release_date, CONCAT(forname,' ', first_name) AS NAMES, gender 
+            $requete = $pdo-> prepare ("SELECT id_film, id_actor, id_role, name_role, title, release_date, CONCAT(forname,' ', first_name) AS NAMES, gender, first_name, forname 
                 FROM casting c
                 INNER JOIN role_actor ra ON c.role_id = ra.id_role
                 INNER JOIN film f ON c.film_id = f.id_film

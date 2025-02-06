@@ -85,6 +85,9 @@ body {
         button a{
             margin: 10px 20px;
         }
+        p{
+            margin: 0 !important;
+        }
         /* pour la page avec la liste des films*/
         .films{
             display: flex;
@@ -157,7 +160,16 @@ body {
             }
         }
         /*pour la page du détail d'un acteur*/
-
+        .imageFilm{
+            width: 200px;
+            height: 200px;
+        }
+        .corps{
+            .film{
+                margin: 0.5rem;
+                text-align: center;
+            }
+        }
         /*pour la page avec la liste des catégories*/
         .corps{
             width: 100%;
@@ -174,14 +186,37 @@ body {
             }
         }
         /*pour la page du détail d'une catégorie*/
-
+        .corps{
+            display: flex;
+            flex-direction: row;
+            .filmCat{
+                width: 200px;
+                height: 300px;
+                margin: 10px;
+                text-align: center;
+                .imgFilmCat{
+                    height: 80%;
+                    width: 90%;
+                }
+            }
+        }
         /*pour la page avec la liste des réalisateurs*/
 
         /*pour la page du détail d'un réalisateur*/
 
-        /*pour la page avec la liste des rôles*/
-
         /*pour la page du détail d'un role*/
+        .corps{
+            width: 100%;
+            .acteurRole{
+                margin: 10px;
+                text-align: center;
+                img{
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                }
+            }
+        }
 
     }
     #scrollToTopBtn {
