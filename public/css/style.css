@@ -159,7 +159,20 @@ body {
         /*pour la page du détail d'un acteur*/
 
         /*pour la page avec la liste des catégories*/
-
+        .corps{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            .categorie{
+                margin: 10px;
+                text-align: center;
+                img{
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 50%;
+                }
+            }
+        }
         /*pour la page du détail d'une catégorie*/
 
         /*pour la page avec la liste des réalisateurs*/

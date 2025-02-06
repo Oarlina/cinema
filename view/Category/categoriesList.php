@@ -1,33 +1,28 @@
 <?php ob_start(); 
-if ($requete->rowCount() != 0){
-    ?>
+    if ($requete->rowCount() != 0){
+?>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount();?> type de catégories.</p>
 
 <button><a href="index.php?action=addCategoryForm">Ajouter une catégorie</a></button>
-
-<table class="uk-table uk-table-stripped">
-    <thead>
-        <tr>
-            <th>GENRE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-            foreach ($requete->fetchAll() as $type_category) {?>
-                <tr>
-                    <td><a href="index.php?action=detailCategory&id=<?= $type_category["id_type"]?>"> <?= $type_category["name_type"] ?> </a></td>
-                    <!-- faire de la ligne un lien cliquable
-                    le redirection une fonction detail categorie et l'id de la categorie -->
-            
-                </tr>
-            <?php } ?>
-    </tbody>
-</table>
-
+<section class="corps">
+    <?php
+    foreach ($requete->fetchAll() as $type_category) {
+        ?>
+    <div class="categorie">
+        <a href="index.php?action=detailCategory&id=<?= $type_category["id_type"]?>">
+            <img src="public/img/categories/<?= $type_category["name_type"]?>.jpg" alt="image categorie">
+            <p> <?= $type_category["name_type"] ?> </p>
+        </a>
+    </div>
 <?php 
+    }
+?>
+    </section>
+<?php
 }else {
-    ?><p>Il n'y a aucun élément!</p> <?php
+    ?><p>Il n'y a aucun élément!</p>
+    <button><a href="index.php?action=addCategoryForm">Ajouter une catégorie</a></button> <?php
 }
  
 $title = "Liste des categories";

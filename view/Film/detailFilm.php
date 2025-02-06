@@ -15,6 +15,10 @@ if ($requete->rowCount() != 0){?>
 <img id="titre_film"src="public/img/films/<?=$film?>.jpg" alt="ahah">
 <h2>Information</h2>
 <section class="infosFilms">
+    <div class="ligne"> 
+        <button><a href="index.php?action=addCastingForm&id=<?=$id_film ?>">Ajouter un casting</a></button> 
+        <button><a href="index.php?action=deleteFilm&id=<?=$id_film ?>">Supprimer le film</a></button> 
+    </div>
     <div class="ligne">
         <p><b>Titre :</b></p>
         <p><?= $title ?></p>
@@ -45,10 +49,7 @@ if ($requete->rowCount() != 0){?>
             </div>
             <?php } ?>
     </section>
-    <div class="ligne">
-        <button><a href="index.php?action=addCastingForm&id=<?=$id_film ?>">Ajouter un casting</a></button> 
-        <button><a href="index.php?action=deleteFilm&id=<?=$id_film ?>">Supprimer le film</a></button> 
-    </div>
+    
 </section>
 <?php
 }else {
