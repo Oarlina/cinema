@@ -15,19 +15,26 @@ class CinemaController {
     public function detailFilm ($id) {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare ("SELECT id_director,CONCAT(p2.forname,' ', p2.first_name)AS NAMES_D,
-                        id_film,title, synopsis, duration, DATE_FORMAT(release_date, ' %e %b %Y') AS release_date, 
+                        id_film, title, synopsis, duration, DATE_FORMAT(release_date, ' %e %b %Y') AS release_date, 
                         id_actor, CONCAT(p.forname, ' ', p.first_name) AS NAMES_A, p.gender,
                         id_role, name_role  
-            FROM casting c
-            INNER JOIN role_actor r ON c.role_id = r.id_role
-            INNER JOIN actor a ON c.actor_id = a.id_actor
-            INNER JOIN person p ON a.person_id = p.id_person
-            INNER JOIN film f ON c.film_id = f.id_film
-            INNER JOIN director d ON f.director_id = d.id_director 
-            INNER JOIN person p2 ON d.person_id = p2.id_person
-            WHERE id_film = :id_film 
+                        FROM casting c
+                        INNER JOIN role_actor r ON c.role_id = r.id_role
+                        INNER JOIN actor a ON c.actor_id = a.id_actor
+                        INNER JOIN person p ON a.person_id = p.id_person
+                        INNER JOIN film f ON c.film_id = f.id_film
+                        INNER JOIN director d ON f.director_id = d.id_director 
+                        INNER JOIN person p2 ON d.person_id = p2.id_person
+                        WHERE id_film = :id_film 
         ");
         $requete ->execute(["id_film" => $id]);
+        $requeteA = $pdo -> prepare("SELECT c.actor_id, a.id_actor, CONCAT(p.forname, ' ', p.first_name) AS NAMES_A, p.first_name, p.forname
+                                    FROM casting c
+                                    INNER JOIN actor a ON c.actor_id = a.id_actor
+                                    INNER JOIN person p ON a.person_id = p.id_person
+                                    INNER JOIN film f ON c.film_id = f.id_film
+                                    WHERE id_film = :id_film");
+        $requeteA ->execute(["id_film" => $id]);
         require "view/Film/detailFilm.php"; 
     }
     // première fonction qui va m'afficher un formulaire

@@ -122,6 +122,9 @@ body {
         }
         .infosFilms{
             width: 100%;
+            #acteurs{
+                width: 100%;
+            }
             .ligne{
                 width: 100%;
                 display: flex;
@@ -287,6 +290,15 @@ body {
         }
 
         #wrapper{
+            /* page d'un détail de film*/
+            .ligne{
+                flex-direction: column !important;
+                p{
+                    width: 100% !important;
+                }
+            }
+
+
 
         }
         
