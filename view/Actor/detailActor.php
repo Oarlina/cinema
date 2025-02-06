@@ -6,15 +6,14 @@ if ($requete->rowCount() != 0){?>
 <?php 
     foreach ($requete->fetchAll() as $casting) { 
         $film = $casting["title"];
-        $nom = $casting["first_name"];
-        $prenom = $casting["forname"];
+        $prenom = $casting["first_name"];
+        $nom = $casting["forname"];
         $genre = $casting["gender"];
         $date = $casting["birth"];
         $id_film = $casting["id_film"];
 } ?>
-<h2>Informations</h2>
 <section class="infosFilms">
-    
+<img class="imageActeur" src="public/img/acteurs/<?=$prenom?>.<?=$nom?>.jpg" alt="acteur image">
     <div class="ligne">
         <p><b>Nom :</b></p>
         <p><?= $nom ?></p>

@@ -5,7 +5,7 @@ use PDOException;
 
 class CategoryController {
     /* Lister des films avec catégorie*/
-    public function categorieslist () {
+    public function categoriesList () {
         $pdo = Connect::seConnecter();
         $requete = $pdo-> query ("
             SELECT id_type ,name_type
@@ -14,7 +14,7 @@ class CategoryController {
         require "view/Category/categoriesList.php"; 
     }
     /* Lister des films selon la categorie*/
-    public function detailcategory ($id) {
+    public function detailCategory ($id) {
         $pdo = Connect::seConnecter();
         $requete = $pdo-> prepare ("SELECT id_film, t.id_type,name_type,fil.title, t.name_type
             FROM type_category t 
@@ -22,16 +22,14 @@ class CategoryController {
             INNER JOIN film fil  ON ft.film_id = fil.id_film 
             WHERE id_type = :id;");
         $requete->execute(["id" => $id]);
-        $requeteT = $pdo-> prepare ("SELECT id_type, name_type
+        $requeteT = $pdo-> query ("SELECT id_type, name_type
             FROM type_category t 
-            INNER JOIN film_type ft ON t.id_type = ft.type_id 
-            WHERE id_type = :id;");
-        $requeteT->execute(["id" => $id]);
+            INNER JOIN film_type ft ON t.id_type = ft.type_id");
         require "view/Category/detailCategory.php"; 
     }
 
     // première fonction qui va m'afficher un formulaire
-    public function addCategoryform()
+    public function addCategoryForm()
     {
         require "view/Category/addCategoryForm.php";
     }

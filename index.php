@@ -20,11 +20,11 @@ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 if (isset($_GET["action"])){
     switch ($_GET["action"]) {
         // partie des categories 
-        case "categoriesList": $ctrlCategory -> categorieslist(); 
+        case "categoriesList": $ctrlCategory -> categoriesList(); 
         break;
-        case "detailCategory": $ctrlCategory -> detailcategory($id);
+        case "detailCategory": $ctrlCategory -> detailCategory($id);
         break;
-        case "addCategoryForm": $ctrlCategory-> addCategoryform();
+        case "addCategoryForm": $ctrlCategory-> addCategoryForm();
         break;
         case "addCategory": $ctrlCategory-> addCategory();
         break;

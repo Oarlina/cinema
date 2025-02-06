@@ -64,9 +64,7 @@ class CinemaController {
             foreach ($_POST['type_id'] as $theme)
             {
                 $id_type = filter_var($theme,FILTER_VALIDATE_INT); 
-                // var_dump($id_type);die;
             }
-            //  var_dump($_POST);die;
             if ($title && $release_date && $duration && $synopsis && $director_id && $id_type) // si les variables sont vrai donc existantes
             {
                 $pdo = Connect::seConnecter();

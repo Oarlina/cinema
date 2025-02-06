@@ -1,10 +1,10 @@
 <?php ob_start(); 
 foreach($requeteT->fetchAll() as $film){  
-    $tc = $film["name_type"];
+    $titlec = $film["name_type"];
 }
 if ($requete->rowCount() != 0){ 
 ?>
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> film(s) dans <?= $tc?>.</p>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> films dans <?= $titlec?>.</p>
 <section class="corps">
     <?php foreach($requete->fetchAll() as $film){  ?>
         <div class="filmCat">
@@ -15,11 +15,10 @@ if ($requete->rowCount() != 0){
 </section>
 <?php 
 }else {
-    ?><p>Il n'y a aucun élément!</p> <?php
-    $tc = "";
+    ?><p>Il n'y a aucun film dans cette catégorie!</p> <?php
 }
-$title = "Catégorie " . $tc;
-$second_title = "Catégorie " . $tc;
+$title = "Catégorie " . $titlec;
+$second_title = "Catégorie " . $titlec;
 $contain = ob_get_clean();
 require "view/template.php";
 ?>

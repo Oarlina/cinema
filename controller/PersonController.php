@@ -100,7 +100,7 @@ class PersonController {
     /* Lister des directeurs*/ 
     public function directorList () {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query ("SELECT id_director, CONCAT(forname, ' ', first_name) AS names, gender, DATE_FORMAT(date_birth, '%d/%m/%Y') as birth FROM director
+        $requete = $pdo->query ("SELECT id_director, CONCAT(forname, ' ', first_name) AS NAMES, gender,forname, first_name, DATE_FORMAT(date_birth, '%d/%m/%Y') as birth FROM director
             INNER JOIN person ON director.person_id = person.id_person"
         );
         require "view/Director/directorList.php"; 
@@ -108,10 +108,21 @@ class PersonController {
     /* Détail d'un directeurs*/ 
     public function detailDirector ($id) {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare ("SELECT id_film, id_director, title, DATE_FORMAT(release_date, '%d %M %Y') as sortie_film, DATE_FORMAT(SEC_TO_TIME(duration*60), '%H h %i min') AS duree_film FROM film f 
-            INNER JOIN director d ON f.director_id = d.id_director 
-            INNER JOIN person p ON d.person_id = p.id_person 
-            WHERE id_director = :id 
+        $requeteD = $pdo->prepare ("SELECT id_film, f.title, DATE_FORMAT(release_date, ' %e %b %Y') as sortie_film, DATE_FORMAT(SEC_TO_TIME(duration*60), '%H h %i min') AS duree_film,
+                                DATE_FORMAT(date_birth, '%d/%m/%Y') as birth, forname, first_name, gender, id_director
+                                FROM film f 
+                                INNER JOIN director d ON f.director_id = d.id_director 
+                                INNER JOIN person p ON d.person_id = p.id_person 
+                                WHERE id_director = :id 
+        ");
+        $requeteD ->execute(["id" => $id]);
+        $requete = $pdo->prepare ("SELECT id_film, id_director, title, DATE_FORMAT(release_date, ' %e %b %Y') as sortie_film,
+                                DATE_FORMAT(date_birth, '%d/%m/%Y') as birth, CONCAT(forname, ' ', first_name) AS NAMES,
+                                DATE_FORMAT(SEC_TO_TIME(duration*60), '%H h %i min') AS duree_film 
+                                FROM film f 
+                                INNER JOIN director d ON f.director_id = d.id_director 
+                                INNER JOIN person p ON d.person_id = p.id_person 
+                                WHERE id_director = :id 
         ");
         $requete ->execute(["id" => $id]);
         require "view/Director/detailDirector.php"; 

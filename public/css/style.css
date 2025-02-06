@@ -170,6 +170,11 @@ body {
                 text-align: center;
             }
         }
+        .imageActeur{
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+        }
         /*pour la page avec la liste des catégories*/
         .corps{
             width: 100%;

@@ -1,7 +1,7 @@
 <?php ob_start();
 if ($requete->rowCount() != 0){?>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> films</p>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> films.</p>
 <button><a href="index.php?action=addFilmForm">Ajouter un film</a></button>
 <section class="films">
     <?php
@@ -18,11 +18,9 @@ if ($requete->rowCount() != 0){?>
     <?php } ?>
 </section>
 
-
-
 <?php
 }else {
-    ?><p>Il n'y a aucun élément!</p> <?php
+    ?><p>Il n'y a aucun films!</p> <?php
 }
 $title = "Liste des films avec categories";
 $second_title = "Liste des films avec categories";

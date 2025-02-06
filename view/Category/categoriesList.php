@@ -25,8 +25,8 @@
     <button><a href="index.php?action=addCategoryForm">Ajouter une catégorie</a></button> <?php
 }
  
-$title = "Liste des categories";
-$second_title = "Liste des categories";
+$title = "Liste des catégories";
+$second_title = "Liste des catégories";
 $contain = ob_get_clean();
 require "view/template.php";
 ?>
