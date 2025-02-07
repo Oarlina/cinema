@@ -1,8 +1,8 @@
 <?php ob_start(); 
 if ($requete->rowCount() != 0){?>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> acteurs</p>
-<button><a href="index.php?action=addActorForm">Ajouter un rôle</a></button>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> acteurs.</p>
+<button><a href="index.php?action=addActorForm">Ajouter un acteur</a></button>
 <br>
 <section class="corps">
 <?php

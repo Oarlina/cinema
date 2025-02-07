@@ -54,12 +54,14 @@ class CinemaController {
     {
         if (isset($_POST['submit'])) // si on a cliquer sur le bouton
         { 
-            // filter_input recupere une variable externet et la filtre
+            // filter_input recupere une variable externe et la filtre
             $title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_SPECIAL_CHARS); // on importe le nom et on enleve les caracteres speciaux
             $release_date = filter_input(INPUT_POST,"release_date",FILTER_SANITIZE_SPECIAL_CHARS); 
             $duration = filter_input(INPUT_POST,"duration",FILTER_VALIDATE_INT);
             $synopsis = filter_input(INPUT_POST,"synopsis",FILTER_SANITIZE_SPECIAL_CHARS);
             $director_id = filter_input(INPUT_POST,"director_id",FILTER_VALIDATE_INT);
+            // $img = move_uploaded_file($_FILES ['file']['name'], "public/img/films/" . $_FILES ['file']['name']) ;
+            // var_dump($_POST);die;
             // je parcours le tableau des type_id
             foreach ($_POST['type_id'] as $theme)
             {

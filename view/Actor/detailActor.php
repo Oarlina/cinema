@@ -1,7 +1,6 @@
 <?php ob_start(); 
 if ($requete->rowCount() != 0){?>
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> rôles</p>
 
 <?php 
     foreach ($requete->fetchAll() as $casting) { 
@@ -30,7 +29,7 @@ if ($requete->rowCount() != 0){?>
         <p><b>Date de naissance :</b></p>
         <p><?= $date ?></p>
     </div>
-    <p id="acteurs"><a href="index.php?action=actorList"> <b>Films:</b></a></p>
+    <p id="acteurs"><a href="index.php?action=actorList"> <b>Films (<?= $requete->rowCount()?>):</b></a></p>
     <section class="corps">
         <?php foreach ($requeteA->fetchAll() as $casting) {?>
             <div class="film">
@@ -44,8 +43,8 @@ if ($requete->rowCount() != 0){?>
 }else {
     ?><p>Il n'y a aucun rôle!</p> <?php
 }
-$title = "Rôle de ". $prenom. " " . $nom;
-$second_title = "Rôle de ". $prenom. " " . $nom;
+$title = $prenom. " " . $nom;
+$second_title = $prenom. " " . $nom;
 $contain = ob_get_clean();
 require "view/template.php";
 ?>

@@ -1,7 +1,7 @@
 <?php ob_start();
 if ($requete->rowCount() != 0){?>
 
-<p class="uk-label uk-label-warning">Il y a réalisé <?= $requete->rowCount()?> réalisateur</p>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> réalisateur.</p>
 <button><a href="index.php?action=addDirectorForm">Ajouter un réalisateur</a></button>
 
 <section class="corps">

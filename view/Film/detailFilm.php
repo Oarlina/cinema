@@ -1,18 +1,15 @@
 <?php ob_start();
-if ($requete->rowCount() != 0){?>
 
-<!-- <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount()?> acteurs</p> -->
-<?php 
-    foreach ($requete->fetchAll() as $casting) { 
-        $film = $casting["title"];
-        $title = $casting["title"];
-        $sypnosis = $casting["synopsis"];
-        $director = $casting["NAMES_D"];
-        $duration = $casting["duration"];
-        $date = $casting["release_date"];
-        $id_film = $casting["id_film"];
+foreach ($requete->fetchAll() as $casting) { 
+    $film = $casting["title"];
+    $sypnosis = $casting["synopsis"];
+    $director = $casting["NAMES_D"];
+    $duration = $casting["duration"];
+    $date = $casting["release_date"];
+    $id_film = $casting["id_film"];
+    $id_director = $casting["id_director"];
 } ?>
-<img id="titre_film"src="public/img/films/<?=$film?>.jpg" alt="ahah">
+<img id="titre_film"src="public/img/films/<?= $film ?>.jpg" alt="<?= $film ?>">
 <h2>Information</h2>
 <section class="infosFilms">
     <div class="ligne"> 
@@ -21,7 +18,7 @@ if ($requete->rowCount() != 0){?>
     </div>
     <div class="ligne">
         <p><b>Titre :</b></p>
-        <p><?= $title ?></p>
+        <p><?= $film ?></p>
     </div>
     <div class="ligne">
         <p><b>Synopsis :</b></p>
@@ -37,9 +34,13 @@ if ($requete->rowCount() != 0){?>
     </div>
     <div class="ligne">
         <p><a href="index.php?action=directorList">  <b>Réalisateur :</b></a></p>
-        <p><a href="index.php?action=detailActor&id=<?= $casting["id_director"]?>"> <?= $director ?></a> </p>
+        <p><a href="index.php?action=detailActor&id=<?= $id_director?>"> <?= $director ?></a> </p>
     </div>
-    <p id="acteurs"><a href="index.php?action=actorList"> <b>Acteurs:</b></a></p>
+    <p id="acteurs"><a href="index.php?action=actorList"> <b>Acteurs (<?= $requete->rowCount()?>):</b></a></p>
+<?php
+    if ($requete->rowCount() != 0){
+?>
+
     <section class="corps">
         <?php foreach ($requeteA->fetchAll() as $actor) { ?> 
             <div class="actorsList">
@@ -53,7 +54,7 @@ if ($requete->rowCount() != 0){?>
 </section>
 <?php
 }else {
-    ?><p>Il n'y a aucun élément!</p> 
+    ?><p>Il n'y a aucun casting.</p>
     <?php 
     foreach ($requete->fetchAll() as $casting) {?> 
     <?php $id_film=$casting["id_film"];?>
