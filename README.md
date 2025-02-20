@@ -18,6 +18,7 @@ L'objectif était de créer un site de cinéma avec une base de données sécuri
 
 **Points Importants**
 * Utilisation d'un modèle MVC.
+* Lier une base de donnée à un site web.
 * Bonne organisation du projet pour des applications web.
   
 **Objectifs Pédagogiques**
