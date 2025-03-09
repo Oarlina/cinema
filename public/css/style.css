@@ -14,7 +14,6 @@ body {
     width: 100%; padding: 10px;
     box-shadow: 2px 2px 15px 10px red  inset;
     background-color: #757373;
-
     .title {
         font-family: "Pacifico", serif;
         font-size: larger;
@@ -36,9 +35,6 @@ body {
                 flex-direction: row;
                 justify-content: center;
                 width: 10%;
-                .fa-bars{
-                    display: none;
-                }
             }
             .nav-milieu{
                 width: 75%;
@@ -319,8 +315,10 @@ body {
     body{
         .header{
             nav{
+                display: flex;
+                flex-direction: column ;
                 .nav-gauche{
-                    width: 100%;
+                    width: 100% ;
                     text-align: center;
                     align-items: center;
                     .fa-bars{
@@ -328,10 +326,12 @@ body {
                     }
                 }
                 .nav-milieu{
-                    display: none;
+                    display: none; 
+                    a{margin: 10px;}
                 }
                 .nav-droite{
                     display: none;
+                    a{margin: 10px;}
                 }
             }
         }
@@ -342,6 +342,8 @@ body {
     body{
         .header{
             nav{
+                display: flex;
+                flex-direction: column ;
                 .nav-gauche{
                     width: 100%;
                     text-align: center;
@@ -353,9 +355,11 @@ body {
                 }
                 .nav-milieu{
                     display: none;
+                    a{margin: 10px 10px;}
                 }
                 .nav-droite{
                     display: none;
+                    a{margin: 10px;}
                 }
             }
         }

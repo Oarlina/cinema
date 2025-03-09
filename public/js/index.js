@@ -1,4 +1,3 @@
-console.log("oui");
 
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
@@ -18,3 +17,17 @@ scrollToTopBtn.addEventListener('click',function(){
         behavior: "smooth"
     });
 });
+
+function myFunction() {
+    var x = document.getElementsByClassName("nav-milieu");
+    var y = document.getElementsByClassName("nav-droite");
+    x = x[0];
+    y = y[0];
+    if (x.style.display == "block") {
+        x.style.display = "none";
+        y.style.display = "none";
+    } else {
+        x.style.display = "block";
+        y.style.display = "block";
+    }
+}

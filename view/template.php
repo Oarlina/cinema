@@ -15,8 +15,8 @@
 <body>
     <div class="header">
         <nav>
-            <div class="nav-gauche">
-                <i class="fa-solid fa-bars"></i> <!-- burger menu -->
+            <div class="nav-gauche" >
+                <a href="javascript:void(0);" onclick="myFunction()"><i class="fa-solid fa-bars" ></i></a> <!-- burger menu -->
                 <p class="title">BingCine</p>
             </div>
             <div class="nav-milieu">
