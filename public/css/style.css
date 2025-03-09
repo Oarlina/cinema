@@ -88,6 +88,23 @@ body {
         p{
             margin: 0 !important;
         }
+        .acceuil{
+            position: relative;
+            .filmAcceuil{
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                object-position: top;
+            }
+            .text{
+                position: absolute;
+                bottom: 3rem;
+                left: 10px;
+                border-radius: 10px;
+                background-color: rgb(232, 230, 230);
+            }
+
+        }
         /* pour la page avec la liste des films*/
         .films{
             display: flex;
@@ -294,6 +311,7 @@ body {
             color: var(--red);
         }
     }
+    
 }
 /* c'est pour les tablettes */
 @media screen and (min-width: 769px) and (max-width:1024px)

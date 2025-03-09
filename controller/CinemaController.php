@@ -153,4 +153,11 @@ class CinemaController {
         }
         header ("Location: index.php?action=filmList");
     }
+
+    public function acceuilPage(){
+        $pdo = Connect::seConnecter();
+        
+        $requeteF1 = $pdo->query("SELECT id_film, title, release_date, duration, synopsis, director_id FROM film ORDER BY id_film DESC LIMIT 1");
+        require "view\acceuil.php"; 
+    }
 }

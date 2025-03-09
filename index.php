@@ -16,8 +16,7 @@ $ctrlFooter = new FooterController();
 $ctrlPerson = new PersonController();
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
-
-if (isset($_GET["action"])){
+// if (isset($_GET["action"])){
     switch ($_GET["action"]) {
         // partie des categories 
         case "categoriesList": $ctrlCategory -> categoriesList(); 
@@ -93,10 +92,12 @@ if (isset($_GET["action"])){
         case "addDirector": $ctrlPerson-> addDirector();
         break;
         case "deleteDirector": $ctrlPerson-> deleteDirector($id);
-        break;  
+        break; 
+        default : $ctrlCinema->acceuilPage();
+        break;
     }
-}else{
-    // m'ouvre en premier lieu la page d'acceuil
-    require "view/acceuil.php";
-}
+// }else{
+//     // m'ouvre en premier lieu la page d'acceuil
+//     require "view/acceuil.php";
+// }
 ?>
