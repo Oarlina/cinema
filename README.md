@@ -1,4 +1,4 @@
-### 📌 Exercice de Formation : Gestion d'un site de cinéma en MVC
+# 📌 Exercice de Formation : Gestion d'un site de cinéma en MVC
 
 ## 📝Description du Projet
 Cet exercice a été réalisé dans le cadre d'une formation en développement web. 
