@@ -31,7 +31,7 @@ L'objectif était de créer un site de cinéma avec une base de données sécuri
   
 ## 🎬 Vidéo
 
-▶️ [Regarder la vidéo](https://drive.google.com/file/d/10ZQHC-bK1NPxgKTzTX55-sKTPqilm6GK/view?usp=sharing )
+▶️ [Regarder la vidéo](https://drive.google.com/file/d/10ZQHC-bK1NPxgKTzTX55-sKTPqilm6GK/view?usp=sharing)
 
 ## 👤 Auteur
 Ce projet à été réalisé par Rachel Marquant.
